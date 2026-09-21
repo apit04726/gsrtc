@@ -1,0 +1,30 @@
+{
+  "site_name": "ગુજરાત બસ માર્ગદર્શક",
+  "site_name_en": "Gujarat Bus Margdarshak",
+  "site_title_seo": "GSRTC બસ માર્ગદર્શક - સમયપત્રક, ટિકિટ બુકિંગ, લગેજ નિયમો & હેલ્પલાઇન | GSRTC Bus Guide Gujarat",
+  "site_tagline": "ગુજરાતમાં સલામત, સુગમ અને સચોટ બસ મુસાફરી માટેનું સ્વતંત્ર માર્ગદર્શન",
+  "site_description": "GSRTC એસટી બસ સમયપત્રક, ઓનલાઇન ટિકિટ બુકિંગ, ૨૫ કિલો સામાન નિયમો, વિદ્યાર્થી & સિનિયર સિટીઝન પાસ, ૧૮૦૦-૨૩૩-૬૬૬૬ હેલ્પલાઇન અને મુસાફરી સલામતી માટેનું સંપૂર્ણ ગુજરાતી માર્ગદર્શન.",
+  "canonical_base": "https://gujbusguide.in",
+  "contact_email": "info@gujbusguide.in",
+  "meta_keywords": "GSRTC, gsrtc bus, gsrtc time table, gsrtc bus time table, gsrtc ticket booking, gsrtc online booking, gsrtc bus tracking, gsrtc pass, gsrtc student pass, gsrtc senior citizen pass, gsrtc luggage rules, 25 kg free luggage gsrtc, gsrtc helpline number, gsrtc toll free 1800 233 6666, gsrtc sleeper bus, gsrtc volvo bus, gurjarnagari, gsrtc ticket cancellation rules, gsrtc ticket refund, એસટી બસ, ગુજરાત એસટી બસ, એસટી બસ સમયપત્રક, એસટી બસ ટિકિટ બુકિંગ ઓનલાઇન, જીએસઆરટીસી, એસટી બસ પાસ યોજના, 108 helpline, 181 abhayam, gujarat bus guide, gujbusguide",
+  "disclaimer_text": "આ એક સ્વતંત્ર અને બિન-સત્તાવાર માર્ગદર્શક વેબસાઇટ છે. આ પોર્ટલ ગુજરાત રાજ્ય માર્ગ વાહનવ્યવહાર નિગમ (GSRTC) કે કોઈપણ સરકારી વિભાગ સાથે સંલગ્ન નથી.",
+  "adsense_enabled": true,
+  "adsense_test_mode": true,
+  "adsense_client_id": "ca-pub-XXXXXXXXXXXXXXXX",
+  "adsense_slots": {
+    "header": "1234567890",
+    "in_article": "2345678901",
+    "mid_article": "3456789012",
+    "below_article": "4567890123",
+    "sidebar": "5678901234",
+    "footer": "6789012345"
+  },
+  "analytics": {
+    "google_analytics_id": "",
+    "google_search_console_tag": ""
+  },
+  "social_links": {
+    "whatsapp_share": true,
+    "telegram_share": true
+  }
+}

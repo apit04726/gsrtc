@@ -1,0 +1,110 @@
+[
+  {
+    "id": "before-travel",
+    "slug": "before-travel",
+    "name": "મુસાફરી પહેલાં",
+    "name_en": "Before Travel",
+    "description": "ઘરેથી નીકળતા પહેલાં તૈયારી, ટિકિટ વેરિફિકેશન, સામાન ચેકલિસ્ટ અને બસ સ્ટેન્ડ પહોંચવા અંગેની જરૂરી સાવચેતીઓ.",
+    "icon": "clipboard-check",
+    "color": "#16a34a"
+  },
+  {
+    "id": "during-travel",
+    "slug": "during-travel",
+    "name": "મુસાફરી દરમિયાન",
+    "name_en": "During Travel",
+    "description": "ચાલુ બસમાં સલામતી, ટિકિટ સાચવવી, બસ રોકાણ (હાલ્ટ) વખતે ધ્યાન રાખવું અને સામાન્ય શિષ્ટાચાર.",
+    "icon": "bus",
+    "color": "#0284c7"
+  },
+  {
+    "id": "luggage-rules",
+    "slug": "luggage-rules",
+    "name": "સામાન અને Luggage",
+    "name_en": "Luggage & Baggage",
+    "description": "મફત સામાન વજન મર્યાદા (25 કિલો), લગેજ ટિકિટના નિયમો, પ્રતિબંધિત વસ્તુઓ અને કિંમતી સામાનની સુરક્ષા.",
+    "icon": "briefcase",
+    "color": "#d97706"
+  },
+  {
+    "id": "ticket-booking",
+    "slug": "ticket-booking",
+    "name": "Ticket & Booking",
+    "name_en": "Ticket & Booking",
+    "description": "ઓનલાઇન ઇ-ટિકિટ બુકિંગ, ડેપો કાઉન્ટર, સીટ કેન્સલેશન નિયમો, રિફંડ પ્રક્રિયા અને નકલી સાઇટોથી બચવાની સલાહ.",
+    "icon": "ticket",
+    "color": "#7c3aed"
+  },
+  {
+    "id": "passenger-safety",
+    "slug": "passenger-safety",
+    "name": "Safety (સુરક્ષા અને સાવચેતી)",
+    "name_en": "Safety",
+    "description": "ચોરી-ખિસ્સાકાતરુંથી બચવું, રાત્રિ મુસાફરીમાં સલામતી, મહિલા સુરક્ષા હેલ્પલાઇન 181 અને કટોકટી નિયમો.",
+    "icon": "shield-check",
+    "color": "#dc2626"
+  },
+  {
+    "id": "family-travel",
+    "slug": "family-travel",
+    "name": "પરિવાર સાથે મુસાફરી",
+    "name_en": "Family Travel",
+    "description": "સમગ્ર પરિવાર સાથે આરામદાયક બસ મુસાફરી માટે સીટ પ્લાનિંગ, નાસ્તો અને સુવિધાઓનું આયોજન.",
+    "icon": "users",
+    "color": "#0d9488"
+  },
+  {
+    "id": "children-travel",
+    "slug": "children-travel",
+    "name": "બાળકો સાથે મુસાફરી",
+    "name_en": "Child Travel",
+    "description": "બાળકો માટે ટિકિટના વય નિયમો (5 થી 12 વર્ષ હાફ ટિકિટ), ઉલટી-ચક્કરની કાળજી, ખોરાક અને બારી પાસે સલામતી.",
+    "icon": "baby",
+    "color": "#e11d48"
+  },
+  {
+    "id": "senior-citizens",
+    "slug": "senior-citizens",
+    "name": "વૃદ્ધો માટે માર્ગદર્શન",
+    "name_en": "Senior Citizens",
+    "description": "સિનિયર સિટીઝન માટે અનામત બેઠકો, બસ ચઢવા-ઉતરવામાં સહાય, નિયમિત દવાઓ અને આંચકા વગરની સીટ પસંદગી.",
+    "icon": "heart",
+    "color": "#4f46e5"
+  },
+  {
+    "id": "monsoon-weather",
+    "slug": "monsoon-weather",
+    "name": "વરસાદ અને હવામાન",
+    "name_en": "Monsoon & Weather",
+    "description": "ચોમાસામાં કોઝવે અને રૂટ ડાયવર્ઝન, વોટરપ્રૂફ પેકિંગ, બસ સ્ટેન્ડ પર લપસણી જમીનથી સાવચેતી.",
+    "icon": "cloud-rain",
+    "color": "#0891b2"
+  },
+  {
+    "id": "long-distance",
+    "slug": "long-distance",
+    "name": "લાંબી મુસાફરી",
+    "name_en": "Long Distance Travel",
+    "description": "ઓવરનાઇટ સ્લીપર, વોલ્વો/ગુર્જરનગરીની લાંબી મુસાફરીમાં ઊંઘ, નેક પિલો, શાલ, મોબાઈલ ચાર્જિંગ અને હાઇવે ભોજન.",
+    "icon": "moon",
+    "color": "#334155"
+  },
+  {
+    "id": "bus-stand-tips",
+    "slug": "bus-stand-tips",
+    "name": "Bus Stand Tips",
+    "name_en": "Bus Stand Tips",
+    "description": "ડેપોમાં પ્લેટફોર્મ/બે નંબર, પૂછપરછ બારી, લાઉડસ્પીકર જાહેરાતો અને બસના કાચ પરનું રૂટ પાટિયું વાંચવાની રીત.",
+    "icon": "map-pin",
+    "color": "#c026d3"
+  },
+  {
+    "id": "emergency-info",
+    "slug": "emergency-info",
+    "name": "Emergency Information",
+    "name_en": "Emergency & Support",
+    "description": "બસમાં સામાન ભૂલી જવો, અચાનક બીમારી, કંડક્ટર સંપર્ક, 108 એમ્બ્યુલન્સ, 181 અભયમ અને ડેપો કંટ્રોલ રૂમ.",
+    "icon": "alert-triangle",
+    "color": "#b91c1c"
+  }
+]

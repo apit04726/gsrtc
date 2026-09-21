@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+Sitemap: https://gujbusguide.in/sitemap.xml

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2942" />
+      <stop offset="50%" stop-color="#183656" />
+      <stop offset="100%" stop-color="#0a1b2d" />
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d96514" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  
+  <!-- Decorative circular glows -->
+  <circle cx="1050" cy="150" r="300" fill="#d96514" opacity="0.12" />
+  <circle cx="150" cy="500" r="250" fill="#3b82f6" opacity="0.08" />
+
+  <!-- Badge -->
+  <rect x="100" y="90" width="320" height="44" rx="22" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+  <text x="130" y="118" font-family="'Noto Sans Gujarati', sans-serif" font-size="18" font-weight="700" fill="#fed7aa">✓ ૧૦૦% વિશ્વસનીય મુસાફર ગાઈડ</text>
+
+  <!-- Heading -->
+  <text x="100" y="220" font-family="'Noto Sans Gujarati', sans-serif" font-size="52" font-weight="800" fill="#ffffff">બસ મુસાફરી માટે ઉપયોગી માહિતી</text>
+  <text x="100" y="290" font-family="'Noto Sans Gujarati', sans-serif" font-size="52" font-weight="800" fill="#fed7aa">અને જરૂરી સાવચેતીઓ</text>
+
+  <!-- Subheading -->
+  <text x="100" y="370" font-family="'Noto Sans Gujarati', sans-serif" font-size="24" font-weight="500" fill="#cbd5e1">બસમાં મુસાફરી કરતા પહેલા, મુસાફરી દરમિયાન અને પછીનું સચોટ માર્ગદર્શન.</text>
+
+  <!-- Feature Pills -->
+  <rect x="100" y="440" width="220" height="50" rx="10" fill="url(#badgeGrad)" />
+  <text x="125" y="472" font-family="'Noto Sans Gujarati', sans-serif" font-size="20" font-weight="700" fill="#ffffff">સામાન નિયમો</text>
+
+  <rect x="340" y="440" width="220" height="50" rx="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" />
+  <text x="365" y="472" font-family="'Noto Sans Gujarati', sans-serif" font-size="20" font-weight="700" fill="#ffffff">ટિકિટ બુકિંગ</text>
+
+  <rect x="580" y="440" width="220" height="50" rx="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" />
+  <text x="605" y="472" font-family="'Noto Sans Gujarati', sans-serif" font-size="20" font-weight="700" fill="#ffffff">મુસાફરી ચેકલિસ્ટ</text>
+
+  <!-- Disclaimer bar at bottom -->
+  <rect x="0" y="570" width="1200" height="60" fill="rgba(0,0,0,0.4)" />
+  <text x="100" y="606" font-family="'Noto Sans Gujarati', sans-serif" font-size="16" font-weight="500" fill="#94a3b8">સ્વતંત્ર માહિતી પોર્ટલ &bull; આ GSRTC ની સત્તાવાર વેબસાઇટ નથી &bull; www.gujbusguide.in</text>
+</svg>
