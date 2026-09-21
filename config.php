@@ -14,9 +14,15 @@ define('DATA_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'data');
 define('INCLUDES_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'includes');
 define('TEMPLATES_PATH', ROOT_PATH . DIRECTORY_SEPARATOR . 'templates');
 
-// Determine Base URL dynamically
+// Determine Base URL dynamically (supports Vercel, Cloudflare, Reverse Proxies & Localhost)
 function get_base_url(): string {
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
+    $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+        || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
+        || (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on')
+        || (!empty($_SERVER['HTTP_HOST']) && str_contains($_SERVER['HTTP_HOST'], 'vercel.app'));
+
+    $protocol = $isHttps ? 'https://' : 'http://';
     $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
     
     // Check script directory
@@ -24,8 +30,8 @@ function get_base_url(): string {
     $dir = dirname($scriptName);
     $dir = str_replace('\\', '/', $dir);
     
-    // If run via PHP built-in server at root
-    if ($dir === '/' || $dir === '.') {
+    // If run via Vercel serverless (/api), PHP built-in server at root, or standard root
+    if ($dir === '/api' || $dir === '/' || $dir === '.') {
         $base = $protocol . $host;
     } else {
         $base = $protocol . $host . rtrim($dir, '/');

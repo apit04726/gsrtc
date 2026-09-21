@@ -167,7 +167,6 @@ require_once INCLUDES_PATH . '/header.php';
         </a>
       </div>
     </div>
-
   </div>
 </main>
 
