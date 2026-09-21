@@ -131,6 +131,9 @@ $ogImage = $ogImage ?? url('assets/images/og-share.png');
 
         <!-- Header Actions -->
         <div class="header-actions">
+          <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-sm" style="background: #d9232d; color: #fff; font-weight: 700; border-radius: var(--radius-md); box-shadow: 0 2px 8px rgba(217,35,45,0.3); display: inline-flex; align-items: center; gap: 0.35rem;" title="ઓનલાઇન બસ ટિકિટ બુક કરો">
+            <span>ટિકિટ બુકિંગ 🎫</span>
+          </a>
           <a href="<?= url('search') ?>" class="btn btn-outline btn-sm" title="શોધો">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <circle cx="11" cy="11" r="8"></circle>
@@ -163,6 +166,9 @@ $ogImage = $ogImage ?? url('assets/images/og-share.png');
       </button>
     </div>
     <div class="drawer-nav">
+      <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" style="background: #d9232d; color: #fff !important; font-weight: 700; border-radius: var(--radius-md); padding: 0.6rem 1rem; text-align: center; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <span>🎫 ઓનલાઇન બસ ટિકિટ બુક કરો &rarr;</span>
+      </a>
       <a href="<?= url() ?>">મુખ્ય પૃષ્ઠ (હોમ)</a>
       <a href="<?= url('checklist') ?>">મુસાફરી ચેકલિસ્ટ (ચેક કરો)</a>
       <a href="<?= url('category/before-travel') ?>">મુસાફરી પહેલાં શું ધ્યાન રાખવું</a>

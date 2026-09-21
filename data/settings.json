@@ -26,5 +26,18 @@
   "social_links": {
     "whatsapp_share": true,
     "telegram_share": true
+  },
+  "monetization": {
+    "ticket_affiliate_enabled": true,
+    "primary_booking_name": "RedBus / AbhiBus / GSRTC",
+    "redbus_affiliate_url": "https://www.redbus.in/bus-tickets?utm_source=gsrtc_guide",
+    "abhibus_affiliate_url": "https://www.abhibus.com/?utm_source=gsrtc_guide",
+    "gsrtc_official_url": "https://gsrtc.in/",
+    "alternative_ads_enabled": false,
+    "alternative_ad_code": {
+      "header_banner": "",
+      "in_article_banner": "",
+      "sidebar_banner": ""
+    }
   }
 }

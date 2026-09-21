@@ -179,6 +179,9 @@ require_once INCLUDES_PATH . '/header.php';
       </a>
     </div>
 
+    <!-- Zero-Investment Bus Ticket Booking CTA Card -->
+    <?php render_ticket_booking_cta('home'); ?>
+
     <!-- 12 Categories Grid (Auto-Responsive) -->
     <section style="margin-bottom: 4rem;">
       <div class="section-header">

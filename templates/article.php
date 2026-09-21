@@ -134,6 +134,9 @@ require_once INCLUDES_PATH . '/header.php';
           </div>
         <?php endif; ?>
 
+        <!-- High-Converting Ticket Booking CTA -->
+        <?php render_ticket_booking_cta('article'); ?>
+
         <!-- 5. Visible FAQ Section (Strictly matches FAQ schema) -->
         <?php if (!empty($article['faqs']) && is_array($article['faqs'])): ?>
           <section class="faq-section" aria-label="વારંવાર પૂછાતા પ્રશ્નો">
