@@ -23,6 +23,8 @@ $ogImage = $ogImage ?? url('assets/images/og-share.png');
   <meta name="keywords" content="<?= e($metaKeywords) ?>">
   <link rel="canonical" href="<?= e($canonicalUrl) ?>">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   
   <!-- Local Gujarat SEO Geotargeting -->
   <meta name="geo.region" content="IN-GJ">

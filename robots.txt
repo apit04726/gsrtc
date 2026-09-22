@@ -14,4 +14,4 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
-Sitemap: https://gujbusguide.in/sitemap.xml
+Sitemap: https://gsrtc-info.vercel.app/sitemap.xml

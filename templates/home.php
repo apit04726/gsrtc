@@ -16,7 +16,7 @@ foreach ($allArticles as $art) {
     $categoryCounts[$cId] = ($categoryCounts[$cId] ?? 0) + 1;
 }
 
-$pageTitle = "GSRTC બસ માર્ગદર્શક - સમયપત્રક, ટિકિટ બુકિંગ, લગેજ નિયમો & હેલ્પલાઇન | ગુજરાત બસ માર્ગદર્શક";
+$pageTitle = "GSRTC - ગુજરાત એસટી બસ સમયપત્રક, ઓનલાઇન ટિકિટ બુકિંગ, પાસ & હેલ્પલાઇન | GSRTC Bus Info";
 $metaDescription = "GSRTC એસટી બસ સમયપત્રક, ઓનલાઇન ટિકિટ બુકિંગ, ૨૫ કિલો સામાન નિયમો, વિદ્યાર્થી & સિનિયર સિટીઝન પાસ, ૧૮૦૦-૨૩૩-૬૬૬૬ હેલ્પલાઇન અને મુસાફરી સલામતી માટેનું ૧૦૦% સચોટ ગુજરાતી માર્ગદર્શન.";
 $metaKeywords = "GSRTC, gsrtc bus, gsrtc time table, gsrtc bus time table, gsrtc ticket booking, gsrtc online booking, gsrtc bus tracking, gsrtc pass, gsrtc luggage rules, 25 kg free luggage gsrtc, gsrtc helpline number, gsrtc toll free 1800 233 6666, gsrtc sleeper bus, એસટી બસ સમયપત્રક, એસટી બસ ટિકિટ બુકિંગ ઓનલાઇન, જીએસઆરટીસી";
 $canonicalUrl = url();

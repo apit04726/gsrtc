@@ -42,10 +42,26 @@ if ($path === 'sitemap.xml') {
 }
 
 if ($path === 'robots.txt') {
-    header('Content-Type: text/plain');
-    if (file_exists(ROOT_PATH . '/robots.txt')) {
-        readfile(ROOT_PATH . '/robots.txt');
-    }
+    header('Content-Type: text/plain; charset=UTF-8');
+    echo "User-agent: *\n";
+    echo "Allow: /\n";
+    echo "Disallow: /data/\n\n";
+    echo "User-agent: Googlebot\n";
+    echo "Allow: /\n\n";
+    echo "User-agent: Googlebot-Image\n";
+    echo "Allow: /\n\n";
+    echo "User-agent: Mediapartners-Google\n";
+    echo "Allow: /\n\n";
+    echo "User-agent: AdsBot-Google\n";
+    echo "Allow: /\n\n";
+    echo "Sitemap: " . url('sitemap.xml') . "\n";
+    exit;
+}
+
+// Google Search Console HTML verification file support (e.g., google1234567890abcdef.html)
+if (preg_match('~^google([a-z0-9_-]+)\.html$~i', $path, $gMatches)) {
+    header('Content-Type: text/html; charset=UTF-8');
+    echo "google-site-verification: google" . htmlspecialchars($gMatches[1]) . ".html";
     exit;
 }
 
