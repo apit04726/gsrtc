@@ -26,6 +26,10 @@
       "dest": "/api/index.php"
     },
     {
+      "src": "/(google[a-zA-Z0-9_-]+\\.html)",
+      "dest": "/api/index.php"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }

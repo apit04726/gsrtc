@@ -61,7 +61,11 @@ if ($path === 'robots.txt') {
 // Google Search Console HTML verification file support (e.g., google1234567890abcdef.html)
 if (preg_match('~^google([a-z0-9_-]+)\.html$~i', $path, $gMatches)) {
     header('Content-Type: text/html; charset=UTF-8');
-    echo "google-site-verification: google" . htmlspecialchars($gMatches[1]) . ".html";
+    if (file_exists(ROOT_PATH . '/' . $path)) {
+        readfile(ROOT_PATH . '/' . $path);
+    } else {
+        echo "google-site-verification: google" . htmlspecialchars($gMatches[1]) . ".html\n";
+    }
     exit;
 }
 
