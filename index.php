@@ -58,15 +58,14 @@ if ($path === 'robots.txt') {
     exit;
 }
 
-// Google Search Console HTML verification file support (e.g., google1234567890abcdef.html)
-if (preg_match('~^google([a-z0-9_-]+)\.html$~i', $path, $gMatches)) {
-    header('Content-Type: text/html; charset=UTF-8');
-    if (file_exists(ROOT_PATH . '/' . $path)) {
-        readfile(ROOT_PATH . '/' . $path);
-    } else {
-        echo "google-site-verification: google" . htmlspecialchars($gMatches[1]) . ".html\n";
+// Google Search Console HTML verification file support
+if (preg_match('~^google([a-z0-9_-]+)\.html$~i', $path)) {
+    $verificationFile = ROOT_PATH . '/' . $path;
+    if (file_exists($verificationFile)) {
+        header('Content-Type: text/html; charset=UTF-8');
+        readfile($verificationFile);
+        exit;
     }
-    exit;
 }
 
 if ($path === 'ads.txt') {
