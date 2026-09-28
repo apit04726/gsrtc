@@ -170,12 +170,14 @@ require_once INCLUDES_PATH . '/header.php';
           <span class="share-label">આ માહિતી શેર કરો:</span>
           <?php 
             $shareUrl = rawurlencode($canonicalUrl);
-            $shareText = rawurlencode($article['title'] . " - " . SITE_NAME);
+            $shareTitle = $article['title'] . " | " . SITE_NAME;
+            $shareDesc = mb_strimwidth($article['excerpt'] ?? '', 0, 100, '...');
+            $shareMessage = rawurlencode("🚌 *" . $shareTitle . "*\n\n" . ($shareDesc ? $shareDesc . "\n\n" : "") . "સંપૂર્ણ માહિતી માટે વાંચો: ");
           ?>
-          <a href="https://api.whatsapp.com/send?text=<?= $shareText ?>%20<?= $shareUrl ?>" target="_blank" rel="noopener noreferrer" class="share-btn share-wa">
+          <a href="https://api.whatsapp.com/send?text=<?= $shareMessage ?><?= $shareUrl ?>" target="_blank" rel="noopener noreferrer" class="share-btn share-wa" title="વ્હોટ્સએપ પર શેર કરો">
             વ્હોટ્સએપ
           </a>
-          <a href="https://t.me/share/url?url=<?= $shareUrl ?>&text=<?= $shareText ?>" target="_blank" rel="noopener noreferrer" class="share-btn share-tg">
+          <a href="https://t.me/share/url?url=<?= $shareUrl ?>&text=<?= rawurlencode("🚌 " . $shareTitle . "\n" . $shareDesc) ?>" target="_blank" rel="noopener noreferrer" class="share-btn share-tg" title="ટેલિગ્રામ પર શેર કરો">
             ટેલિગ્રામ
           </a>
           <button type="button" id="copyArticleLink" class="share-btn share-copy">

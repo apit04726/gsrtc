@@ -123,7 +123,7 @@ require_once INCLUDES_PATH . '/header.php';
       <!-- Share Widget -->
       <div style="margin-top: 2rem; padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md); text-align: center;">
         <p style="font-weight: 700; color: var(--primary); margin-bottom: 0.75rem;">આ ચેકલિસ્ટ તમારા પરિવાર કે મિત્રો સાથે શેર કરો:</p>
-        <a href="https://api.whatsapp.com/send?text=<?= rawurlencode('બસમાં મુસાફરી કરતા પહેલા આ ચેકલિસ્ટ ખાસ જોઈ લો: ' . url('checklist')) ?>" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">
+        <a href="https://api.whatsapp.com/send?text=<?= rawurlencode("🚌 *GSRTC બસ મુસાફરી ચેકલિસ્ટ - ગુજરાત બસ માર્ગદર્શક*\n\nઘરેથી નીકળતા પહેલા જરૂરી દસ્તાવેજ, રોકડ, દવાઓ અને સામાનનું લિસ્ટ તમારા મોબાઇલમાં ચેક કરો:\n" . url('checklist')) ?>" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">
           વ્હોટ્સએપ પર શેર કરો
         </a>
       </div>

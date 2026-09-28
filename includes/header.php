@@ -55,20 +55,26 @@ $ogImage = $ogImage ?? url('assets/images/og-share.png');
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<?= e($settings['adsense_client_id']) ?>" crossorigin="anonymous"></script>
   <?php endif; ?>
   
-  <!-- Open Graph / Social Meta -->
+  <!-- Open Graph / Social Media Preview (WhatsApp, Facebook, Telegram, LinkedIn) -->
   <meta property="og:locale" content="gu_IN">
   <meta property="og:type" content="<?= e($ogType) ?>">
+  <meta property="og:site_name" content="<?= e(SITE_NAME) ?>">
   <meta property="og:title" content="<?= e($pageTitle) ?>">
   <meta property="og:description" content="<?= e($metaDescription) ?>">
   <meta property="og:url" content="<?= e($canonicalUrl) ?>">
-  <meta property="og:site_name" content="<?= e(SITE_NAME) ?>">
   <meta property="og:image" content="<?= e($ogImage) ?>">
+  <meta property="og:image:secure_url" content="<?= e($ogImage) ?>">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="<?= e($pageTitle) ?>">
   
-  <!-- Twitter Card -->
+  <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="<?= e($pageTitle) ?>">
   <meta name="twitter:description" content="<?= e($metaDescription) ?>">
   <meta name="twitter:image" content="<?= e($ogImage) ?>">
+  <meta name="twitter:image:alt" content="<?= e($pageTitle) ?>">
 
   <!-- Google Fonts: Noto Sans Gujarati & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
