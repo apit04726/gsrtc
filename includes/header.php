@@ -10,7 +10,7 @@ $metaDescription = $metaDescription ?? ($settings['site_description'] ?? SITE_TA
 $metaKeywords = $metaKeywords ?? ($settings['meta_keywords'] ?? 'GSRTC, gsrtc bus, gsrtc time table, gsrtc ticket booking, એસટી બસ સમયપત્રક, ગુજરાત બસ');
 $canonicalUrl = $canonicalUrl ?? url();
 $ogType = $ogType ?? 'website';
-$ogImage = $ogImage ?? url('assets/images/og-share.png');
+$ogImage = $ogImage ?? url('assets/images/og-share.jpg');
 ?>
 <!DOCTYPE html>
 <html lang="gu">
@@ -64,7 +64,7 @@ $ogImage = $ogImage ?? url('assets/images/og-share.png');
   <meta property="og:url" content="<?= e($canonicalUrl) ?>">
   <meta property="og:image" content="<?= e($ogImage) ?>">
   <meta property="og:image:secure_url" content="<?= e($ogImage) ?>">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="<?= e($pageTitle) ?>">
