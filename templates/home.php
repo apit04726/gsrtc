@@ -221,7 +221,7 @@ require_once INCLUDES_PATH . '/header.php';
           <h2>મુસાફરો માટે સૌથી ઉપયોગી લેખો</h2>
           <p>મુસાફરી દરમિયાન સૌથી વધુ પૂછાતા પ્રશ્નો અને તેના સચોટ જવાબો</p>
         </div>
-        <a href="<?= url('category/before-travel') ?>" class="btn btn-outline btn-sm">બધા લેખ જુઓ &rarr;</a>
+        <a href="<?= url('category/before-travel') ?>" class="btn btn-outline-primary btn-sm">બધા લેખ જુઓ &rarr;</a>
       </div>
 
       <div class="articles-grid">
@@ -300,8 +300,8 @@ require_once INCLUDES_PATH . '/header.php';
         આ વેબસાઇટ કોઈ ફેક ટિકિટ બુકિંગ કે કમ્પ્યુટર જનરેટેડ એઆઈ કન્ટેન્ટ નથી બનાવતી. અહીં આપવામાં આવેલી દરેક માહિતી વાસ્તવિક મુસાફરોના અનુભવો, મોટર વ્હીકલ નિયમો અને પરિવહનની જાહેર માર્ગદર્શિકાઓને ધ્યાને રાખીને શુદ્ધ સરળ ગુજરાતીમાં તૈયાર કરવામાં આવી છે.
       </p>
       <div style="display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-        <a href="<?= url('about-us') ?>" class="btn btn-outline btn-sm">અમારા મિશન વિશે વધુ વાંચો</a>
-        <a href="<?= url('sources-verification') ?>" class="btn btn-outline btn-sm">માહિતી સ્ત્રોત અને સત્યાર્થતા</a>
+        <a href="<?= url('about-us') ?>" class="btn btn-outline-primary btn-sm">અમારા મિશન વિશે વધુ વાંચો</a>
+        <a href="<?= url('sources-verification') ?>" class="btn btn-outline-primary btn-sm">માહિતી સ્ત્રોત અને સત્યાર્થતા</a>
       </div>
     </section>
 

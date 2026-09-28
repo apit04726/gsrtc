@@ -27,8 +27,8 @@ require_once INCLUDES_PATH . '/header.php';
 
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
       <a href="<?= url() ?>" class="btn btn-primary">મુખ્ય પૃષ્ઠ પર જાઓ</a>
-      <a href="<?= url('checklist') ?>" class="btn btn-outline">મુસાફરી ચેકલિસ્ટ</a>
-      <a href="<?= url('category/before-travel') ?>" class="btn btn-outline">મુસાફરી પહેલાં માર્ગદર્શન</a>
+      <a href="<?= url('checklist') ?>" class="btn btn-outline-primary">મુસાફરી ચેકલિસ્ટ</a>
+      <a href="<?= url('category/before-travel') ?>" class="btn btn-outline-primary">મુસાફરી પહેલાં માર્ગદર્શન</a>
     </div>
   </div>
 </main>

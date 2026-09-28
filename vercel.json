@@ -18,6 +18,10 @@
       "dest": "/api/index.php"
     },
     {
+      "src": "/favicon.ico",
+      "dest": "/api/index.php"
+    },
+    {
       "src": "/ads.txt",
       "dest": "/api/index.php"
     },

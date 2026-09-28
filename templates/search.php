@@ -109,15 +109,15 @@ require_once INCLUDES_PATH . '/header.php';
         <h3 style="color: var(--primary); margin-bottom: 1rem;">GSRTC મુસાફરો દ્વારા વારંવાર પૂછાતા મોસ્ટ પોપ્યુલર વિષયો</h3>
         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">નીચે આપેલા કોઈપણ વિષય પર ક્લિક કરીને સીધું સચોટ માર્ગદર્શન મેળવો:</p>
         <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-          <a href="<?= url('search?q=સમયપત્રક') ?>" class="btn btn-outline btn-sm">🕒 GSRTC બસ સમયપત્રક</a>
-          <a href="<?= url('search?q=ટિકિટ+બુકિંગ') ?>" class="btn btn-outline btn-sm">🎫 ટિકિટ બુકિંગ નિયમો</a>
-          <a href="<?= url('search?q=સામાન+વજન') ?>" class="btn btn-outline btn-sm">🧳 25 કિલો સામાન નિયમ</a>
-          <a href="<?= url('search?q=વિદ્યાર્થી+પાસ') ?>" class="btn btn-outline btn-sm">🪪 વિદ્યાર્થી 80% પાસ યોજના</a>
-          <a href="<?= url('search?q=રિફંડ') ?>" class="btn btn-outline btn-sm">💰 ટિકિટ કેન્સલેશન & રિફંડ</a>
-          <a href="<?= url('search?q=સિનિયર+સિટીઝન') ?>" class="btn btn-outline btn-sm">👴 વરિષ્ઠ નાગરિક અનામત સીટ</a>
-          <a href="<?= url('search?q=મહિલા+સુરક્ષા') ?>" class="btn btn-outline btn-sm">👩 મહિલા સુરક્ષા 181 અભયમ</a>
-          <a href="<?= url('search?q=બાળકોની+ટિકિટ') ?>" class="btn btn-outline btn-sm">👶 બાળકોની હાફ ટિકિટ વય</a>
-          <a href="<?= url('search?q=helpline') ?>" class="btn btn-outline btn-sm">🚨 ટોલ ફ્રી 1800 233 6666</a>
+          <a href="<?= url('search?q=સમયપત્રક') ?>" class="btn btn-outline-primary btn-sm rounded-pill">🕒 GSRTC બસ સમયપત્રક</a>
+          <a href="<?= url('search?q=ટિકિટ+બુકિંગ') ?>" class="btn btn-outline-primary btn-sm rounded-pill">🎫 ટિકિટ બુકિંગ નિયમો</a>
+          <a href="<?= url('search?q=સામાન+વજન') ?>" class="btn btn-outline-primary btn-sm rounded-pill">🧳 25 કિલો સામાન નિયમ</a>
+          <a href="<?= url('search?q=વિદ્યાર્થી+પાસ') ?>" class="btn btn-outline-primary btn-sm rounded-pill">🪪 વિદ્યાર્થી 80% પાસ યોજના</a>
+          <a href="<?= url('search?q=રિફંડ') ?>" class="btn btn-outline-primary btn-sm rounded-pill">💰 ટિકિટ કેન્સલેશન & રિફંડ</a>
+          <a href="<?= url('search?q=સિનિયર+સિટીઝન') ?>" class="btn btn-outline-primary btn-sm rounded-pill">👴 વરિષ્ઠ નાગરિક અનામત સીટ</a>
+          <a href="<?= url('search?q=મહિલા+સુરક્ષા') ?>" class="btn btn-outline-primary btn-sm rounded-pill">👩 મહિલા સુરક્ષા 181 અભયમ</a>
+          <a href="<?= url('search?q=બાળકોની+ટિકિટ') ?>" class="btn btn-outline-primary btn-sm rounded-pill">👶 બાળકોની હાફ ટિકિટ વય</a>
+          <a href="<?= url('search?q=helpline') ?>" class="btn btn-outline-primary btn-sm rounded-pill">🚨 ટોલ ફ્રી 1800 233 6666</a>
         </div>
       </div>
     <?php endif; ?>

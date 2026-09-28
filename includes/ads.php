@@ -90,15 +90,15 @@ function render_ticket_booking_cta(string $context = 'general'): void {
         </div>
 
         <div class="booking-cta-actions">
-          <a href="<?= e($redbusUrl) ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn-booking-primary">
+          <a href="<?= e($redbusUrl) ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-danger btn-lg btn-motion-pulse btn-motion-shimmer">
             <span>RedBus પર બુક કરો</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </a>
-          <a href="<?= e($abhibusUrl) ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn-booking-secondary">
+          <a href="<?= e($abhibusUrl) ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-primary btn-lg">
             <span>AbhiBus પર બુક કરો</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
-          <a href="<?= e($gsrtcUrl) ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn-booking-outline">
+          <a href="<?= e($gsrtcUrl) ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-outline-secondary btn-lg">
             <span>GSRTC સત્તાવાર પોર્ટલ</span>
           </a>
         </div>

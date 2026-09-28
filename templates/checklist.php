@@ -91,11 +91,11 @@ require_once INCLUDES_PATH . '/header.php';
         ✓ ટીક કરેલ વસ્તુઓ ઓટોમેટિક સેવ થાય છે
       </span>
       <div style="display: flex; gap: 0.5rem;">
-        <button type="button" id="printChecklistBtn" class="btn btn-outline btn-sm">
+        <button type="button" id="printChecklistBtn" class="btn btn-outline-primary btn-sm">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
           પ્રિન્ટ / PDF
         </button>
-        <button type="button" id="resetChecklistBtn" class="btn btn-outline btn-sm" style="color: #b91c1c; border-color: #fecaca;">
+        <button type="button" id="resetChecklistBtn" class="btn btn-outline-danger btn-sm">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
           બધું રીસેટ કરો
         </button>
@@ -123,7 +123,7 @@ require_once INCLUDES_PATH . '/header.php';
       <!-- Share Widget -->
       <div style="margin-top: 2rem; padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md); text-align: center;">
         <p style="font-weight: 700; color: var(--primary); margin-bottom: 0.75rem;">આ ચેકલિસ્ટ તમારા પરિવાર કે મિત્રો સાથે શેર કરો:</p>
-        <a href="https://api.whatsapp.com/send?text=<?= rawurlencode('બસમાં મુસાફરી કરતા પહેલા આ ચેકલિસ્ટ ખાસ જોઈ લો: ' . url('checklist')) ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="background:#25d366; border-color:#25d366;">
+        <a href="https://api.whatsapp.com/send?text=<?= rawurlencode('બસમાં મુસાફરી કરતા પહેલા આ ચેકલિસ્ટ ખાસ જોઈ લો: ' . url('checklist')) ?>" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">
           વ્હોટ્સએપ પર શેર કરો
         </a>
       </div>

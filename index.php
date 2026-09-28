@@ -58,6 +58,16 @@ if ($path === 'robots.txt') {
     exit;
 }
 
+if ($path === 'favicon.ico') {
+    $favFile = ROOT_PATH . '/favicon.ico';
+    if (file_exists($favFile)) {
+        header('Content-Type: image/x-icon');
+        header('Cache-Control: public, max-age=604800');
+        readfile($favFile);
+        exit;
+    }
+}
+
 // Google Search Console HTML verification file support
 if (preg_match('~^google([a-z0-9_-]+)\.html$~i', $path)) {
     $verificationFile = ROOT_PATH . '/' . $path;

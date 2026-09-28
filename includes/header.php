@@ -37,6 +37,13 @@ $ogImage = $ogImage ?? url('assets/images/og-share.png');
   <meta name="theme-color" content="#015fc9">
   <meta name="author" content="ગુજરાત બસ માર્ગદર્શક સંપાદકીય ટીમ">
 
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="<?= url('assets/images/favicon.svg') ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= url('assets/images/favicon-32x32.png') ?>">
+  <link rel="icon" type="image/png" sizes="192x192" href="<?= url('assets/images/favicon-192x192.png') ?>">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= url('assets/images/apple-touch-icon.png') ?>">
+  <link rel="shortcut icon" href="<?= url('favicon.ico') ?>">
+
   <?php if (!empty($settings['analytics']['google_search_console_tag'])): ?>
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="<?= e($settings['analytics']['google_search_console_tag']) ?>">
@@ -133,11 +140,11 @@ $ogImage = $ogImage ?? url('assets/images/og-share.png');
 
         <!-- Header Actions -->
         <div class="header-actions">
-          <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-sm" style="background: #d9232d; color: #fff; font-weight: 700; border-radius: var(--radius-md); box-shadow: 0 2px 8px rgba(217,35,45,0.3); display: inline-flex; align-items: center; gap: 0.35rem;" title="ઓનલાઇન બસ ટિકિટ બુક કરો">
+          <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-danger btn-sm rounded-pill btn-motion-pulse btn-motion-shimmer" title="ઓનલાઇન બસ ટિકિટ બુક કરો">
             <span>ટિકિટ બુકિંગ 🎫</span>
           </a>
-          <a href="<?= url('search') ?>" class="btn btn-outline btn-sm" title="શોધો">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <a href="<?= url('search') ?>" class="btn btn-outline-primary btn-sm rounded-pill" title="શોધો">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
