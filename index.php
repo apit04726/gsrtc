@@ -47,9 +47,14 @@ if ($path === 'robots.txt') {
     echo "Allow: /\n";
     echo "Disallow: /data/\n\n";
     echo "User-agent: Googlebot\n";
-    echo "Allow: /\n\n";
+    echo "Allow: /\n";
+    echo "Allow: /assets/\n";
+    echo "Allow: /favicon.ico\n";
+    echo "Allow: /site.webmanifest\n\n";
     echo "User-agent: Googlebot-Image\n";
-    echo "Allow: /\n\n";
+    echo "Allow: /\n";
+    echo "Allow: /assets/images/\n";
+    echo "Allow: /favicon.ico\n\n";
     echo "User-agent: Mediapartners-Google\n";
     echo "Allow: /\n\n";
     echo "User-agent: AdsBot-Google\n";
@@ -64,6 +69,16 @@ if ($path === 'favicon.ico') {
         header('Content-Type: image/x-icon');
         header('Cache-Control: public, max-age=604800');
         readfile($favFile);
+        exit;
+    }
+}
+
+if ($path === 'site.webmanifest' || $path === 'manifest.json') {
+    $manifestFile = ROOT_PATH . '/site.webmanifest';
+    if (file_exists($manifestFile)) {
+        header('Content-Type: application/manifest+json; charset=UTF-8');
+        header('Cache-Control: public, max-age=604800');
+        readfile($manifestFile);
         exit;
     }
 }

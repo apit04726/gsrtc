@@ -8,9 +8,16 @@ function generate_website_schema(): string {
     $schema = [
         "@context" => "https://schema.org",
         "@type" => "WebSite",
-        "name" => SITE_NAME,
-        "alternateName" => SITE_NAME_EN,
-        "url" => url(),
+        "name" => "GSRTC ગુજરાત એસટી બસ માર્ગદર્શક",
+        "alternateName" => [
+            "GSRTC Info",
+            "ગુજરાત બસ માર્ગદર્શક",
+            "GSRTC Bus Time Table",
+            "GSRTC Bus Guide",
+            "Gujarat Bus Margdarshak",
+            "GSRTC Time Table Portal"
+        ],
+        "url" => url() . '/',
         "description" => SITE_TAGLINE,
         "inLanguage" => "gu",
         "potentialAction" => [
@@ -29,10 +36,16 @@ function generate_organization_schema(): string {
     $schema = [
         "@context" => "https://schema.org",
         "@type" => "Organization",
-        "name" => SITE_NAME,
-        "alternateName" => SITE_NAME_EN,
-        "url" => url(),
-        "logo" => url('assets/images/logo.png'),
+        "name" => "GSRTC ગુજરાત એસટી બસ માર્ગદર્શક",
+        "alternateName" => "GSRTC Info - Gujarat Bus Margdarshak",
+        "url" => url() . '/',
+        "logo" => [
+            "@type" => "ImageObject",
+            "url" => url('assets/images/favicon-512x512.png'),
+            "width" => 512,
+            "height" => 512
+        ],
+        "image" => url('assets/images/og-share.png'),
         "description" => SITE_TAGLINE,
         "email" => SITE_EMAIL,
         "sameAs" => []

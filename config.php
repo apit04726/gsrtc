@@ -43,10 +43,10 @@ function get_base_url(): string {
 define('BASE_URL', get_base_url());
 
 // Site Identity Constants
-define('SITE_NAME', 'ગુજરાત બસ માર્ગદર્શક');
-define('SITE_NAME_EN', 'Gujarat Bus Margdarshak');
-define('SITE_TAGLINE', 'ગુજરાતમાં સલામત, સુગમ અને સચોટ બસ મુસાફરી માટેનું સ્વતંત્ર માર્ગદર્શન');
-define('SITE_EMAIL', 'info@gujbusguide.in');
+define('SITE_NAME', 'GSRTC ગુજરાત એસટી બસ માર્ગદર્શક');
+define('SITE_NAME_EN', 'GSRTC Info - Gujarat Bus Margdarshak');
+define('SITE_TAGLINE', 'GSRTC એસટી બસ સમયપત્રક, ઓનલાઇન ટિકિટ બુકિંગ અને મુસાફરી માર્ગદર્શન');
+define('SITE_EMAIL', 'info@gsrtc-info.vercel.app');
 
 // Legal Non-Affiliation Notice
 define('OFFICIAL_DISCLAIMER', 'આ એક સ્વતંત્ર અને બિન-સત્તાવાર માર્ગદર્શક વેબસાઇટ છે. આ પોર્ટલ ગુજરાત રાજ્ય માર્ગ વાહનવ્યવહાર નિગમ (GSRTC) કે કોઈપણ સરકારી વિભાગ સાથે સંલગ્ન, અધિકૃત કે સંચાલિત નથી. મુસાફરોની સગવડ અને માર્ગદર્શન માટે અહીં સામાન્ય માહિતી પૂરી પાડવામાં આવે છે. સત્તાવાર બુકિંગ, તાજા સમયપત્રક અને ભાડાં માટે હંમેશા GSRTC ની સત્તાવાર વેબસાઇટ કે ડેપોનો સંપર્ક કરવો.');

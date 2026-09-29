@@ -4,9 +4,14 @@ Disallow: /data/
 
 User-agent: Googlebot
 Allow: /
+Allow: /assets/
+Allow: /favicon.ico
+Allow: /site.webmanifest
 
 User-agent: Googlebot-Image
 Allow: /
+Allow: /assets/images/
+Allow: /favicon.ico
 
 User-agent: Mediapartners-Google
 Allow: /

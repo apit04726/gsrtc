@@ -18,7 +18,19 @@
       "dest": "/api/index.php"
     },
     {
+      "src": "/site.webmanifest",
+      "headers": {
+        "content-type": "application/manifest+json; charset=UTF-8",
+        "cache-control": "public, max-age=604800"
+      },
+      "dest": "/api/index.php"
+    },
+    {
       "src": "/favicon.ico",
+      "headers": {
+        "content-type": "image/x-icon",
+        "cache-control": "public, max-age=604800"
+      },
       "dest": "/api/index.php"
     },
     {

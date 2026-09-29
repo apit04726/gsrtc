@@ -37,12 +37,15 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
   <meta name="theme-color" content="#015fc9">
   <meta name="author" content="ગુજરાત બસ માર્ગદર્શક સંપાદકીય ટીમ">
 
-  <!-- Favicon & Touch Icons -->
-  <link rel="icon" type="image/svg+xml" href="<?= url('assets/images/favicon.svg') ?>">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?= url('assets/images/favicon-32x32.png') ?>">
+  <!-- Favicon & Touch Icons for Googlebot & Modern Browsers -->
+  <link rel="icon" type="image/png" sizes="48x48" href="<?= url('assets/images/favicon-48x48.png') ?>">
+  <link rel="icon" type="image/png" sizes="96x96" href="<?= url('assets/images/favicon-96x96.png') ?>">
   <link rel="icon" type="image/png" sizes="192x192" href="<?= url('assets/images/favicon-192x192.png') ?>">
-  <link rel="apple-touch-icon" sizes="180x180" href="<?= url('assets/images/apple-touch-icon.png') ?>">
+  <link rel="icon" type="image/png" sizes="512x512" href="<?= url('assets/images/favicon-512x512.png') ?>">
+  <link rel="icon" type="image/svg+xml" href="<?= url('assets/images/favicon.svg') ?>">
   <link rel="shortcut icon" href="<?= url('favicon.ico') ?>">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= url('assets/images/apple-touch-icon.png') ?>">
+  <link rel="manifest" href="<?= url('site.webmanifest') ?>">
 
   <?php if (!empty($settings['analytics']['google_search_console_tag'])): ?>
     <!-- Google Search Console Verification -->
