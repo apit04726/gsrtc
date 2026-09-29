@@ -193,14 +193,15 @@ require_once INCLUDES_PATH . '/header.php';
 
       <div class="categories-grid">
         <?php foreach ($categories as $cat): ?>
-          <?php $count = $categoryCounts[$cat['id']] ?? 0; ?>
-          <a href="<?= url('category/' . $cat['slug']) ?>" class="category-card">
+          <?php 
+            $count = $categoryCounts[$cat['id']] ?? 0;
+            $catIcon = $cat['icon'] ?? 'bus';
+            $catColor = $cat['color'] ?? '#015fc9';
+          ?>
+          <a href="<?= url('category/' . $cat['slug']) ?>" class="category-card" style="--cat-color: <?= e($catColor) ?>;">
             <div class="category-card-top">
-              <div class="category-icon" style="background-color: var(--primary);">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                </svg>
+              <div class="category-icon" style="background-color: <?= e($catColor) ?>; box-shadow: 0 4px 14px <?= e($catColor) ?>40;">
+                <?= get_category_svg_icon($catIcon, 22) ?>
               </div>
               <span class="category-count"><?= $count ?> લેખ</span>
             </div>

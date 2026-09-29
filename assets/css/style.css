@@ -3571,6 +3571,21 @@ textarea.form-control {
   transform: scale(1.35);
 }
 
+.other-cat-icon-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.other-cat-card:hover .other-cat-icon-badge {
+  transform: scale(1.1);
+}
+
 .other-cat-info {
   display: flex;
   flex-direction: column;
@@ -3699,28 +3714,70 @@ table {
    Comprehensive Device Responsiveness (Desktop, Tablet, Mobile)
    ========================================================================== */
 
-/* 1. TABLET & MEDIUM DESKTOP SCREENS (max-width: 992px) */
-@media (max-width: 992px) {
+/* ==========================================================================
+   COMPREHENSIVE DEVICE AUTO-RESPONSIVENESS (JioPhone, Android, iPhone, Tablet, 4K Ultra)
+   ========================================================================== */
+
+/* 1. 4K ULTRA HD & 2K LARGE SCREENS (min-width: 1441px) */
+@media (min-width: 1441px) {
+  :root {
+    --container-max: 1360px;
+  }
+}
+
+@media (min-width: 1921px) {
+  :root {
+    --container-max: 1540px;
+  }
+  
+  html {
+    font-size: 17.5px; /* Proportional scaling for 4K / QHD monitors */
+  }
+
+  .site-header {
+    box-shadow: 0 4px 20px rgba(1, 95, 201, 0.09);
+  }
+}
+
+/* 2. TABLET & MEDIUM DESKTOP SCREENS (769px to 1024px - iPad, Galaxy Tab, Surface) */
+@media (max-width: 1024px) and (min-width: 769px) {
   .main-nav {
     display: none;
   }
   
   .smart-menu-toggle {
     display: inline-flex;
+    width: 40px;
+    height: 40px;
   }
 
   .header-actions {
-    gap: 0.6rem;
+    gap: 0.65rem;
   }
 
   .header-btn-booking {
     display: inline-flex;
-    padding: 0.38rem 0.85rem;
-    font-size: 0.84rem;
+    padding: 0.42rem 0.95rem;
+    font-size: 0.86rem;
   }
 
   .header-btn-booking .booking-btn-text {
     display: inline;
+  }
+
+  .header-btn-search {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-drawer {
+    width: 400px;
+  }
+
+  .drawer-category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
 
   .pro-hero-grid {
@@ -3747,9 +3804,9 @@ table {
   }
 }
 
-/* 2. MOBILE & PHABLET SCREENS (max-width: 768px) */
+/* 3. MOBILE & PHABLET SCREENS (max-width: 768px - All Mobile Devices) */
 @media (max-width: 768px) {
-  /* Enable Bottom App Bar and prevent footer cut-off */
+  /* Enable Bottom App Bar and prevent footer cut-off with safe area padding */
   body {
     padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
   }
@@ -3770,8 +3827,13 @@ table {
   }
 
   .smart-menu-toggle {
+    display: inline-flex;
     width: 38px;
     height: 38px;
+  }
+
+  .main-nav {
+    display: none;
   }
 
   .hero-search-card {
@@ -3790,6 +3852,11 @@ table {
   .showcase-card {
     height: 320px;
     border-radius: 16px;
+  }
+
+  .pro-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   /* 2 Columns switch to 1 Full-Width Column on Mobile */
@@ -3836,19 +3903,19 @@ table {
   }
 }
 
-/* 3. SMALL MOBILE PHONES (max-width: 480px) */
-@media (max-width: 480px) {
+/* 4. STANDARD SMARTPHONES (341px to 480px - Android & iPhone with Notch/Dynamic Island) */
+@media (max-width: 480px) and (min-width: 341px) {
   .container {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
 
   .header-inner {
-    height: 58px;
+    height: 60px;
   }
 
   .brand-text .brand-title {
-    font-size: clamp(0.96rem, 4.2vw, 1.12rem);
+    font-size: clamp(0.96rem, 4.2vw, 1.15rem);
   }
 
   .brand-text .brand-sub {
@@ -3856,17 +3923,17 @@ table {
   }
 
   .brand-icon {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
   }
 
   .brand-icon svg {
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 19px;
   }
 
   .header-actions {
-    gap: 0.35rem;
+    gap: 0.4rem;
   }
 
   .header-btn-search {
@@ -3877,6 +3944,10 @@ table {
   .smart-menu-toggle {
     width: 36px;
     height: 36px;
+  }
+
+  .mobile-drawer {
+    width: min(340px, 88vw);
   }
 
   .top-disclaimer-bar {
@@ -3907,13 +3978,115 @@ table {
     font-size: 0.8rem;
     padding: 0.2rem 0.55rem;
   }
+}
 
-  .interactive-checklist-card {
-    padding: 1rem 0.85rem;
+/* 5. ULTRA-COMPACT / JIO PHONE / KAIOS / GALAXY FOLD COVER (240px to 340px) */
+@media (max-width: 340px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
-  .cl-task-text {
+  .header-inner {
+    height: 52px;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+  }
+
+  .brand-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .brand-text .brand-title {
     font-size: 0.88rem;
+    letter-spacing: -0.02em;
+  }
+
+  .brand-text .brand-sub {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0.25rem;
+  }
+
+  .header-btn-search {
+    width: 32px;
+    height: 32px;
+  }
+
+  .smart-menu-toggle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hamburger-box {
+    width: 15px;
+    height: 12px;
+  }
+
+  .mobile-drawer {
+    width: 95vw;
+  }
+
+  .drawer-header-brand {
+    padding: 0.85rem 0.9rem;
+  }
+
+  .drawer-brand-title {
+    font-size: 0.92rem;
+  }
+
+  .drawer-body {
+    padding: 0.75rem 0.8rem;
+    gap: 0.85rem;
+  }
+
+  .drawer-cat-chip {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.8rem;
+  }
+
+  .cat-chip-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-bottom-nav {
+    height: calc(52px + env(safe-area-inset-bottom, 0px));
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+
+  .bnav-label {
+    font-size: 0.62rem;
+  }
+
+  .bnav-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .bnav-fab {
+    top: -8px;
+  }
+
+  .bnav-fab-inner {
+    width: 44px;
+    height: 44px;
+  }
+
+  .fab-ticket-icon {
+    font-size: 0.95rem;
+  }
+
+  .fab-text {
+    font-size: 0.55rem;
   }
 }
 
@@ -4029,11 +4202,37 @@ table {
   gap: 0.75rem;
   align-items: center;
   margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+/* Full Width (100%) on All Mobile & All Tablet screens */
+@media (max-width: 1024px) {
+  .booking-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .booking-cta-actions .btn,
+  .booking-cta-actions a {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.98rem !important;
+    font-weight: 700 !important;
+    border-radius: var(--radius-md) !important;
+    box-sizing: border-box !important;
+  }
 }
 
 .btn-booking-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: #d9232d;
   color: #ffffff !important;
@@ -4055,6 +4254,7 @@ table {
 .btn-booking-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
   background: #015fc9;
   color: #ffffff !important;
@@ -4075,6 +4275,7 @@ table {
 .btn-booking-outline {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   background: #ffffff;
   color: var(--primary-dark) !important;

@@ -127,10 +127,16 @@ require_once INCLUDES_PATH . '/header.php';
       <div class="other-categories-grid">
         <?php foreach ($allCategories as $c): ?>
           <?php if ($c['slug'] !== $category['slug']): ?>
-            <?php $cCount = $categoryCounts[$c['id']] ?? 0; ?>
+            <?php 
+              $cCount = $categoryCounts[$c['id']] ?? 0;
+              $cIcon = $c['icon'] ?? 'bus';
+              $cColor = $c['color'] ?? '#0d6efd';
+            ?>
             <a href="<?= url('category/' . $c['slug']) ?>" class="other-cat-card" title="<?= e($c['name']) ?>">
               <div class="other-cat-card-left">
-                <span class="other-cat-badge-dot" style="background-color: <?= e($c['color'] ?? '#0d6efd') ?>;"></span>
+                <span class="other-cat-icon-badge" style="background-color: <?= e($cColor) ?>18; color: <?= e($cColor) ?>;">
+                  <?= get_category_svg_icon($cIcon, 18) ?>
+                </span>
                 <div class="other-cat-info">
                   <span class="other-cat-title"><?= e($c['name']) ?></span>
                   <?php if (!empty($c['name_en'])): ?>
@@ -151,7 +157,14 @@ require_once INCLUDES_PATH . '/header.php';
         <!-- 12th Card to balance the 2-column grid into 6 x 2 -->
         <a href="<?= url() ?>#categories" class="other-cat-card other-cat-card-all" title="બધી કેટેગરીઝ એક્સપ્લોર કરો">
           <div class="other-cat-card-left">
-            <span class="other-cat-badge-dot" style="background-color: #0d6efd;"></span>
+            <span class="other-cat-icon-badge" style="background-color: #0d6efd18; color: #0d6efd;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+              </svg>
+            </span>
             <div class="other-cat-info">
               <span class="other-cat-title" style="color: #0d6efd;">બધા વિષયો જુઓ</span>
               <span class="other-cat-sub">મુખ્ય હોમ પેજ પર ૧૨ કેટેગરીઝ</span>
