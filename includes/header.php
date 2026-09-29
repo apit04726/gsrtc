@@ -216,15 +216,17 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
       </form>
 
       <!-- High-Conversion RedBus Booking Card -->
-      <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="drawer-booking-card btn-motion-pulse">
-        <div class="booking-card-glow"></div>
-        <div class="booking-card-left">
-          <div class="booking-card-badge"><span class="pulse-indicator"></span> લાઈવ બુકિંગ</div>
+      <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="drawer-booking-card" title="ઓનલાઇન બસ ટિકિટ બુક કરો">
+        <div class="booking-card-main">
+          <div class="booking-card-top-row">
+           
+            <span class="booking-partner-tag">RedBus</span>
+          </div>
           <div class="booking-card-title">ઓનલાઇન બસ ટિકિટ બુક કરો</div>
-          <div class="booking-card-sub">RedBus અધિકૃત ભાગીદાર પોર્ટલ</div>
+          <div class="booking-card-sub">GSRTC &amp; પ્રાઇવેટ બસ • સરળ બુકિંગ &rarr;</div>
         </div>
-        <div class="booking-card-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="booking-card-arrow-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </div>
