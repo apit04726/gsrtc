@@ -4,8 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Drawer
+  // 1. Smart Mobile & Tablet Menu Drawer
   const menuToggle = document.getElementById('mobileMenuToggle');
+  const bottomMenuToggle = document.getElementById('bottomNavMenuToggle');
   const drawer = document.getElementById('mobileDrawer');
   const backdrop = document.getElementById('drawerBackdrop');
   const closeDrawer = document.getElementById('closeDrawer');
@@ -14,7 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (drawer && backdrop) {
       drawer.classList.add('open');
       backdrop.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.setAttribute('aria-hidden', 'false');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+      if (bottomMenuToggle) bottomMenuToggle.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
+
+      // Auto-focus search field after animation if on tablet/desktop view
+      setTimeout(() => {
+        const searchInput = drawer.querySelector('.drawer-search-input');
+        if (searchInput && window.innerWidth >= 768) {
+          searchInput.focus();
+        }
+      }, 350);
     }
   }
 
@@ -22,13 +35,66 @@ document.addEventListener('DOMContentLoaded', () => {
     if (drawer && backdrop) {
       drawer.classList.remove('open');
       backdrop.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.setAttribute('aria-hidden', 'true');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+      if (bottomMenuToggle) bottomMenuToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
   }
 
-  if (menuToggle) menuToggle.addEventListener('click', openMenu);
-  if (closeDrawer) closeDrawer.addEventListener('click', closeMenu);
+  if (menuToggle) menuToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (drawer && drawer.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  if (bottomMenuToggle) bottomMenuToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (drawer && drawer.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  if (closeDrawer) closeDrawer.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeMenu();
+  });
+
   if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+  // Close drawer on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer && drawer.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  // Touch Swipe Right to Close Drawer on Mobile & Tablet
+  if (drawer) {
+    let drawerStartX = 0;
+    let drawerStartY = 0;
+
+    drawer.addEventListener('touchstart', (e) => {
+      drawerStartX = e.changedTouches[0].clientX;
+      drawerStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    drawer.addEventListener('touchend', (e) => {
+      const diffX = e.changedTouches[0].clientX - drawerStartX;
+      const diffY = Math.abs(e.changedTouches[0].clientY - drawerStartY);
+      
+      // If horizontal swipe to the right is greater than vertical movement
+      if (diffX > 60 && diffX > diffY) {
+        closeMenu();
+      }
+    }, { passive: true });
+  }
 
   // 2. Smart Showcase Hero Card Slider (3 Images, Auto-Play, Pause-on-Hover, Touch Swipe)
   const slider = document.getElementById('heroSlider');

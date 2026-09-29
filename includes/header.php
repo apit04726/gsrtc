@@ -129,7 +129,7 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
             </svg>
           </div>
           <div class="brand-text">
-            <h1><?= e(SITE_NAME) ?></h1>
+            <span class="brand-title"><?= e(SITE_NAME) ?></span>
             <span class="brand-sub">સલામત અને સરળ મુસાફરી માર્ગદર્શક</span>
           </div>
         </a>
@@ -146,60 +146,273 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
 
         <!-- Header Actions -->
         <div class="header-actions">
-          <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-danger btn-sm rounded-pill btn-motion-pulse btn-motion-shimmer" title="ઓનલાઇન બસ ટિકિટ બુક કરો">
-            <span>ટિકિટ બુકિંગ 🎫</span>
+          <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="header-btn-booking btn-motion-pulse btn-motion-shimmer" title="ઓનલાઇન બસ ટિકિટ બુક કરો">
+            <span class="booking-btn-icon">🎫</span>
+            <span class="booking-btn-text">ટિકિટ બુકિંગ</span>
           </a>
-          <a href="<?= url('search') ?>" class="btn btn-outline-primary btn-sm rounded-pill" title="શોધો">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <a href="<?= url('search') ?>" class="header-btn-search" title="શોધો" aria-label="માહિતી શોધો">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <span>શોધો</span>
           </a>
-          <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="ઓપન મેનુ">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+          <button id="mobileMenuToggle" class="smart-menu-toggle" aria-label="મુખ્ય મેનુ ખોલો" aria-expanded="false" aria-controls="mobileDrawer">
+            <span class="hamburger-box">
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </span>
           </button>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer Backdrop & Drawer -->
-  <div id="drawerBackdrop" class="drawer-backdrop"></div>
-  <aside id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation">
-    <div class="drawer-header">
-      <span style="font-weight: 700; color: var(--primary);"><?= e(SITE_NAME) ?></span>
-      <button id="closeDrawer" style="background:none; border:none; cursor:pointer; padding:0.25rem;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <!-- Smart Mobile & Tablet Drawer Backdrop & Drawer -->
+  <div id="drawerBackdrop" class="drawer-backdrop" aria-hidden="true"></div>
+  <aside id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <!-- Drawer Brand Header -->
+    <div class="drawer-header-brand">
+      <div class="drawer-brand-wrap">
+        <div class="drawer-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="15" rx="3"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="18" x2="9" y2="21"></line>
+            <line x1="15" y1="18" x2="15" y2="21"></line>
+            <circle cx="7" cy="14" r="1"></circle>
+            <circle cx="17" cy="14" r="1"></circle>
+          </svg>
+        </div>
+        <div class="drawer-brand-info">
+          <span class="drawer-brand-title"><?= e(SITE_NAME) ?></span>
+          <span class="drawer-brand-badge">સ્વતંત્ર મુસાફરી સહાયક</span>
+        </div>
+      </div>
+      <button id="closeDrawer" class="drawer-close-btn" aria-label="મેનુ બંધ કરો">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
     </div>
-    <div class="drawer-nav">
-      <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" style="background: #d9232d; color: #fff !important; font-weight: 700; border-radius: var(--radius-md); padding: 0.6rem 1rem; text-align: center; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-        <span>🎫 ઓનલાઇન બસ ટિકિટ બુક કરો &rarr;</span>
+
+    <!-- Drawer Scrollable Content Area -->
+    <div class="drawer-body">
+      <!-- Quick Search Box -->
+      <form action="<?= url('search') ?>" method="GET" class="drawer-search-form" role="search">
+        <div class="drawer-search-wrap">
+          <svg class="drawer-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" name="q" class="drawer-search-input" placeholder="માર્ગદર્શન કે નિયમો શોધો..." aria-label="માર્ગદર્શન શોધો" autocomplete="off">
+          <button type="submit" class="drawer-search-btn" aria-label="શોધો">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </form>
+
+      <!-- High-Conversion RedBus Booking Card -->
+      <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="drawer-booking-card btn-motion-pulse">
+        <div class="booking-card-glow"></div>
+        <div class="booking-card-left">
+          <div class="booking-card-badge"><span class="pulse-indicator"></span> લાઈવ બુકિંગ</div>
+          <div class="booking-card-title">ઓનલાઇન બસ ટિકિટ બુક કરો</div>
+          <div class="booking-card-sub">RedBus અધિકૃત ભાગીદાર પોર્ટલ</div>
+        </div>
+        <div class="booking-card-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
       </a>
-      <a href="<?= url() ?>">મુખ્ય પૃષ્ઠ (હોમ)</a>
-      <a href="<?= url('checklist') ?>">મુસાફરી ચેકલિસ્ટ (ચેક કરો)</a>
-      <a href="<?= url('category/before-travel') ?>">મુસાફરી પહેલાં શું ધ્યાન રાખવું</a>
-      <a href="<?= url('category/during-travel') ?>">મુસાફરી દરમિયાન સાવચેતી</a>
-      <a href="<?= url('category/luggage-rules') ?>">સામાન અને લગેજ નિયમો</a>
-      <a href="<?= url('category/ticket-booking') ?>">ટિકિટ અને બુકિંગ માર્ગદર્શન</a>
-      <a href="<?= url('category/passenger-safety') ?>">સલામતી અને સુરક્ષા</a>
-      <a href="<?= url('category/children-travel') ?>">બાળકો સાથે મુસાફરી</a>
-      <a href="<?= url('category/senior-citizens') ?>">વૃદ્ધો માટે માર્ગદર્શન</a>
-      <a href="<?= url('category/monsoon-weather') ?>">વરસાદ અને હવામાન</a>
-      <a href="<?= url('category/long-distance') ?>">લાંબી મુસાફરી ટિપ્સ</a>
-      <a href="<?= url('category/bus-stand-tips') ?>">બસ સ્ટેન્ડ માર્ગદર્શન</a>
-      <a href="<?= url('category/emergency-info') ?>">ઈમરજન્સી અને હેલ્પલાઇન</a>
-      <hr style="border: 0; border-top: 1px solid var(--border); margin: 0.5rem 0;">
-      <a href="<?= url('about-us') ?>">અમારા વિશે</a>
-      <a href="<?= url('contact-us') ?>">સંપર્ક કરો</a>
-      <a href="<?= url('disclaimer') ?>">કાયદાકીય અસ્વીકરણ</a>
+
+      <!-- Navigation Section 1: Main Pages -->
+      <div class="drawer-section">
+        <div class="drawer-section-title">
+          <span>મુખ્ય સુવિધાઓ</span>
+        </div>
+        <div class="drawer-nav-list">
+          <a href="<?= url() ?>" class="drawer-nav-item <?= empty($currentRoute) ? 'active' : '' ?>">
+            <span class="drawer-item-icon icon-blue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </span>
+            <span class="drawer-item-label">મુખ્ય પૃષ્ઠ (હોમ)</span>
+          </a>
+          <a href="<?= url('checklist') ?>" class="drawer-nav-item <?= ($currentRoute ?? '') === 'checklist' ? 'active' : '' ?>">
+            <span class="drawer-item-icon icon-emerald">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            </span>
+            <span class="drawer-item-label">સ્માર્ટ મુસાફરી ચેકલિસ્ટ</span>
+            <span class="drawer-badge-highlight">નવું ⭐</span>
+          </a>
+          <a href="<?= url('search') ?>" class="drawer-nav-item <?= ($currentRoute ?? '') === 'search' ? 'active' : '' ?>">
+            <span class="drawer-item-icon icon-purple">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <span class="drawer-item-label">શોધો અને તમામ આર્ટીકલ્સ</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation Section 2: Categories Guide Grid -->
+      <div class="drawer-section">
+        <div class="drawer-section-title">
+          <span>મુસાફરી માર્ગદર્શક શ્રેણીઓ</span>
+        </div>
+        <div class="drawer-category-grid">
+          <?php
+          $cats = get_categories();
+          foreach ($cats as $cat):
+            $catSlug = $cat['slug'] ?? $cat['id'];
+            $isActive = ($currentRoute ?? '') === 'category/' . $catSlug;
+            $catIcon = $cat['icon'] ?? 'bus';
+            $catColor = $cat['color'] ?? '#015fc9';
+          ?>
+          <a href="<?= url('category/' . $catSlug) ?>" class="drawer-cat-chip <?= $isActive ? 'active' : '' ?>">
+            <span class="cat-chip-icon" style="background-color: <?= e($catColor) ?>18; color: <?= e($catColor) ?>;">
+              <?php
+              switch($catIcon) {
+                case 'clipboard-check':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="m9 14 2 2 4-4"></path></svg>';
+                  break;
+                case 'briefcase':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>';
+                  break;
+                case 'ticket':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path><path d="M13 5v2"></path><path d="M13 17v2"></path><path d="M13 11v2"></path></svg>';
+                  break;
+                case 'shield-check':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>';
+                  break;
+                case 'users':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>';
+                  break;
+                case 'baby':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>';
+                  break;
+                case 'heart':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
+                  break;
+                case 'cloud-rain':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="13" x2="16" y2="21"></line><line x1="8" y1="13" x2="8" y2="21"></line><line x1="12" y1="15" x2="12" y2="23"></line><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path></svg>';
+                  break;
+                case 'moon':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+                  break;
+                case 'map-pin':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>';
+                  break;
+                case 'alert-triangle':
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>';
+                  break;
+                default:
+                  echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="15" rx="3"></rect><line x1="3" y1="9" x2="21" y2="9"></line><circle cx="7" cy="14" r="1"></circle><circle cx="17" cy="14" r="1"></circle></svg>';
+                  break;
+              }
+              ?>
+            </span>
+            <span class="cat-chip-name"><?= e($cat['name']) ?></span>
+            <svg class="cat-chip-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <!-- Navigation Section 3: Information & Links -->
+      <div class="drawer-section">
+        <div class="drawer-section-title">
+          <span>માહિતી અને સહાય</span>
+        </div>
+        <div class="drawer-sub-links">
+          <a href="<?= url('about-us') ?>"><span class="sub-link-dot"></span> અમારા વિશે (About Us)</a>
+          <a href="<?= url('contact-us') ?>"><span class="sub-link-dot"></span> સંપર્ક કરો (Contact Us)</a>
+          <a href="<?= url('privacy-policy') ?>"><span class="sub-link-dot"></span> પ્રાઇવસી પોલિસી (Privacy)</a>
+          <a href="<?= url('terms') ?>"><span class="sub-link-dot"></span> નિયમો અને શરતો (Terms)</a>
+          <a href="<?= url('disclaimer') ?>"><span class="sub-link-dot"></span> કાયદાકીય અસ્વીકરણ (Disclaimer)</a>
+        </div>
+      </div>
+
+      <!-- Emergency Quick Call Hub in Drawer -->
+      <div class="drawer-emergency-hub">
+        <div class="emergency-hub-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>24x7 કટોકટી અને સહાય નંબર્સ</span>
+        </div>
+        <div class="emergency-hub-grid">
+          <a href="tel:181" class="hub-call-pill hub-pink" title="181 અભયમ મહિલા હેલ્પલાઇન">
+            <span class="hub-num">181</span>
+            <span class="hub-lbl">અભયમ</span>
+          </a>
+          <a href="tel:108" class="hub-call-pill hub-red" title="108 ઇમરજન્સી એમ્બ્યુલન્સ">
+            <span class="hub-num">108</span>
+            <span class="hub-lbl">એમ્બ્યુલન્સ</span>
+          </a>
+          <a href="tel:18002336666" class="hub-call-pill hub-blue" title="1800-233-6666 GSRTC સેન્ટ્રલ પૂછપરછ">
+            <span class="hub-num">1800-233</span>
+            <span class="hub-lbl">GSRTC</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer Footer Info -->
+    <div class="drawer-footer">
+      <span>🇮🇳 ગુજરાતના મુસાફરો માટે ૧૦૦% નિઃશુલ્ક માર્ગદર્શન</span>
     </div>
   </aside>
+
+  <!-- Mobile Bottom Quick Navigation Bar (Smart App-like bar for mobile/tablets) -->
+  <nav id="mobileBottomNav" class="mobile-bottom-nav" aria-label="Mobile Quick Bar">
+    <a href="<?= url() ?>" class="bnav-item <?= empty($currentRoute) ? 'active' : '' ?>">
+      <div class="bnav-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </div>
+      <span class="bnav-label">હોમ</span>
+    </a>
+
+    <a href="<?= url('checklist') ?>" class="bnav-item <?= ($currentRoute ?? '') === 'checklist' ? 'active' : '' ?>">
+      <div class="bnav-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"></path>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+      </div>
+      <span class="bnav-label">ચેકલિસ્ટ</span>
+    </a>
+
+    <!-- Center Floating Action Button (Ticket Booking) -->
+    <a href="<?= e($settings['monetization']['redbus_affiliate_url'] ?? 'https://www.redbus.in/') ?>" target="_blank" rel="noopener noreferrer nofollow" class="bnav-fab" aria-label="ઓનલાઇન ટિકિટ બુક કરો">
+      <div class="bnav-fab-inner">
+        <span class="fab-ticket-icon">🎫</span>
+        <span class="fab-text">બુકિંગ</span>
+      </div>
+    </a>
+
+    <a href="<?= url('search') ?>" class="bnav-item <?= ($currentRoute ?? '') === 'search' ? 'active' : '' ?>">
+      <div class="bnav-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </div>
+      <span class="bnav-label">શોધો</span>
+    </a>
+
+    <button id="bottomNavMenuToggle" class="bnav-item" aria-label="મેનુ ખોલો" aria-controls="mobileDrawer">
+      <div class="bnav-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </div>
+      <span class="bnav-label">મેનુ</span>
+    </button>
+  </nav>
