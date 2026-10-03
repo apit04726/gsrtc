@@ -41,5 +41,5 @@
 
   <!-- Disclaimer bar at bottom -->
   <rect x="0" y="570" width="1200" height="60" fill="rgba(0,0,0,0.4)" />
-  <text x="100" y="606" font-family="'Noto Sans Gujarati', sans-serif" font-size="16" font-weight="500" fill="#94a3b8">સ્વતંત્ર માહિતી પોર્ટલ &bull; આ GSRTC ની સત્તાવાર વેબસાઇટ નથી &bull; www.gujbusguide.in</text>
+  <text x="100" y="606" font-family="'Noto Sans Gujarati', sans-serif" font-size="16" font-weight="500" fill="#94a3b8">સ્વતંત્ર માહિતી પોર્ટલ &bull; આ GSRTC ની સત્તાવાર વેબસાઇટ નથી &bull; gsrtc-info.vercel.app</text>
 </svg>

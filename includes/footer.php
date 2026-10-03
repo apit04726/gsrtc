@@ -101,6 +101,7 @@
             <li><a href="<?= url('disclaimer') ?>"><span class="link-chevron">›</span> કાયદાકીય અસ્વીકરણ (Disclaimer)</a></li>
             <li><a href="<?= url('editorial-policy') ?>"><span class="link-chevron">›</span> સંપાદકીય નીતિ (Editorial)</a></li>
             <li><a href="<?= url('sources-verification') ?>"><span class="link-chevron">›</span> માહિતી સ્ત્રોત અને ચકાસણી</a></li>
+            <li><a href="<?= url('sitemap') ?>"><span class="link-chevron">›</span> સાઇટમેપ (Sitemap)</a></li>
           </ul>
         </div>
 

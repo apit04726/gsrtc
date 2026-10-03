@@ -1,0 +1,32 @@
+# GSRTC Info - ગુજરાત એસટી બસ માર્ગદર્શક
+> An independent, authoritative passenger guidance platform for GSRTC (Gujarat State Road Transport Corporation) bus travel in Gujarat, India.
+
+## About The Project
+- Website: https://gsrtc-info.vercel.app/
+- Language: Gujarati (ગુજરાતી) & English
+- Scope: GSRTC Bus Timetable, Online Ticket Booking, 25kg Baggage Allowance Rules, Concession Passes (Student, Senior Citizen, Divyang), Route Assistance, and Emergency Helplines (1800 233 6666, 108, 181, 112).
+
+## Core Sections & Tools
+- Home Page: https://gsrtc-info.vercel.app/
+- Smart Packing Checklist: https://gsrtc-info.vercel.app/checklist
+- Search & Knowledge Base: https://gsrtc-info.vercel.app/search
+- HTML Sitemap: https://gsrtc-info.vercel.app/sitemap
+- XML Sitemap: https://gsrtc-info.vercel.app/sitemap.xml
+- RSS Feed: https://gsrtc-info.vercel.app/feed.xml
+
+## Main Categories
+- Before Travel Guidance (મુસાફરી પહેલાં): https://gsrtc-info.vercel.app/category/before-travel
+- During Travel Guidance (મુસાફરી દરમિયાન): https://gsrtc-info.vercel.app/category/during-travel
+- Luggage Rules (સામાન નિયમો): https://gsrtc-info.vercel.app/category/luggage-rules
+- Ticket Booking & Concession (ટિકિટ બુકિંગ & પાસ): https://gsrtc-info.vercel.app/category/ticket-booking
+- Passenger Safety (મુસાફરોની સુરક્ષા): https://gsrtc-info.vercel.app/category/passenger-safety
+- Special Assistance (વિશેષ મુસાફરો): https://gsrtc-info.vercel.app/category/special-passengers
+- Women & Children Travel (મહિલા અને બાળ સુરક્ષા): https://gsrtc-info.vercel.app/category/women-children
+- Senior Citizens & Health (વરિષ્ઠ નાગરિકો): https://gsrtc-info.vercel.app/category/seniors-health
+- Monsoon & Road Safety (ચોમાસુ & રસ્તા સુરક્ષા): https://gsrtc-info.vercel.app/category/monsoon-safety
+- Night Travel & Sleeper (રાત્રિ મુસાફરી & સ્લીપર): https://gsrtc-info.vercel.app/category/night-travel
+- Station Amenities (બસ સ્ટેન્ડ સુવિધાઓ): https://gsrtc-info.vercel.app/category/station-amenities
+- Emergency & Helplines (કટોકટી અને હેલ્પલાઇન): https://gsrtc-info.vercel.app/category/emergency-info
+
+## Legal Disclaimer
+This is an independent educational portal and is not affiliated with, authorized, or operated by Gujarat State Road Transport Corporation (GSRTC) or the Government of Gujarat.

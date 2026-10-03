@@ -46,6 +46,7 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
   <link rel="shortcut icon" href="<?= url('favicon.ico') ?>">
   <link rel="apple-touch-icon" sizes="180x180" href="<?= url('assets/images/apple-touch-icon.png') ?>">
   <link rel="manifest" href="<?= url('site.webmanifest') ?>">
+  <link rel="alternate" type="application/rss+xml" title="<?= e(SITE_NAME) ?> - RSS Feed" href="<?= url('feed.xml') ?>">
 
   <?php if (!empty($settings['analytics']['google_search_console_tag'])): ?>
     <!-- Google Search Console Verification -->

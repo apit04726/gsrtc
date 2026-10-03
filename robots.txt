@@ -13,10 +13,23 @@ Allow: /
 Allow: /assets/images/
 Allow: /favicon.ico
 
+User-agent: Bingbot
+Allow: /
+
 User-agent: Mediapartners-Google
 Allow: /
 
 User-agent: AdsBot-Google
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://gsrtc-info.vercel.app/sitemap.xml
+Sitemap: https://gsrtc-info.vercel.app/feed.xml

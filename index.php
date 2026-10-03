@@ -41,6 +41,25 @@ if ($path === 'sitemap.xml') {
     exit;
 }
 
+if ($path === 'feed.xml' || $path === 'rss.xml' || $path === 'feed') {
+    require_once ROOT_PATH . '/feed.php';
+    exit;
+}
+
+if ($path === 'llms.txt') {
+    $llmsFile = ROOT_PATH . '/llms.txt';
+    if (file_exists($llmsFile)) {
+        header('Content-Type: text/plain; charset=UTF-8');
+        readfile($llmsFile);
+        exit;
+    }
+}
+
+if ($path === 'sitemap' || $path === 'html-sitemap') {
+    require_once TEMPLATES_PATH . '/sitemap-html.php';
+    exit;
+}
+
 if ($path === 'robots.txt') {
     header('Content-Type: text/plain; charset=UTF-8');
     echo "User-agent: *\n";
@@ -55,11 +74,20 @@ if ($path === 'robots.txt') {
     echo "Allow: /\n";
     echo "Allow: /assets/images/\n";
     echo "Allow: /favicon.ico\n\n";
+    echo "User-agent: Bingbot\n";
+    echo "Allow: /\n\n";
     echo "User-agent: Mediapartners-Google\n";
     echo "Allow: /\n\n";
     echo "User-agent: AdsBot-Google\n";
     echo "Allow: /\n\n";
+    echo "User-agent: Google-Extended\n";
+    echo "Allow: /\n\n";
+    echo "User-agent: GPTBot\n";
+    echo "Allow: /\n\n";
+    echo "User-agent: PerplexityBot\n";
+    echo "Allow: /\n\n";
     echo "Sitemap: " . url('sitemap.xml') . "\n";
+    echo "Sitemap: " . url('feed.xml') . "\n";
     exit;
 }
 

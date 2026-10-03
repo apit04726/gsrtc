@@ -43,6 +43,14 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     <priority>0.8</priority>
   </url>
 
+  <!-- HTML Sitemap for Deep Crawling -->
+  <url>
+    <loc><?= url('sitemap') ?></loc>
+    <lastmod><?= date('Y-m-d') ?></lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Categories -->
   <?php foreach ($categories as $cat): ?>
     <url>
