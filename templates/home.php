@@ -184,32 +184,42 @@ require_once INCLUDES_PATH . '/header.php';
       <?php render_ticket_booking_cta('home'); ?>
     </div>
 
-    <!-- 12 Categories Grid (Auto-Responsive) -->
-    <section style="margin-bottom: 4rem;">
-      <div class="section-header" data-animate="fade-up">
+    <!-- 12 Categories Card Stack Scroll Animation (3 Cards Per Row) -->
+    <section class="categories-stack-section" style="margin-bottom: 5rem;">
+      <div class="section-header categories-sticky-header" data-animate="fade-up">
         <div class="section-title-group">
           <h2>વિષય મુજબ માર્ગદર્શન (Categories)</h2>
           <p>તમારી મુસાફરીને અનુરૂપ વિષય પસંદ કરી સચોટ માહિતી મેળવો</p>
         </div>
       </div>
 
-      <div class="categories-grid" data-stagger="50" data-animate-child="fade-up">
-        <?php foreach ($categories as $cat): ?>
-          <?php 
-            $count = $categoryCounts[$cat['id']] ?? 0;
-            $catIcon = $cat['icon'] ?? 'bus';
-            $catColor = $cat['color'] ?? '#015fc9';
-          ?>
-          <a href="<?= url('category/' . $cat['slug']) ?>" class="category-card" style="--cat-color: <?= e($catColor) ?>;">
-            <div class="category-card-top">
-              <div class="category-icon" style="background-color: <?= e($catColor) ?>; box-shadow: 0 4px 14px <?= e($catColor) ?>40;">
-                <?= get_category_svg_icon($catIcon, 22) ?>
-              </div>
-              <span class="category-count"><?= $count ?> લેખ</span>
+      <div class="categories-stack-wrapper" id="categoriesStack">
+        <?php 
+          $categoryRows = array_chunk($categories, 3);
+          $totalRows = count($categoryRows);
+        ?>
+        <?php foreach ($categoryRows as $rowIndex => $rowCats): ?>
+          <div class="category-stack-row" data-stack-index="<?= $rowIndex ?>" style="--stack-index: <?= $rowIndex ?>; --total-stacks: <?= $totalRows ?>;">
+            <div class="category-row-cards">
+              <?php foreach ($rowCats as $cat): ?>
+                <?php 
+                  $count = $categoryCounts[$cat['id']] ?? 0;
+                  $catIcon = $cat['icon'] ?? 'bus';
+                  $catColor = $cat['color'] ?? '#015fc9';
+                ?>
+                <a href="<?= url('category/' . $cat['slug']) ?>" class="category-card" style="--cat-color: <?= e($catColor) ?>;">
+                  <div class="category-card-top">
+                    <div class="category-icon" style="background-color: <?= e($catColor) ?>; box-shadow: 0 4px 14px <?= e($catColor) ?>40;">
+                      <?= get_category_svg_icon($catIcon, 22) ?>
+                    </div>
+                    <span class="category-count"><?= $count ?> લેખ</span>
+                  </div>
+                  <h3 class="category-name"><?= e($cat['name']) ?></h3>
+                  <p class="category-desc"><?= e($cat['description']) ?></p>
+                </a>
+              <?php endforeach; ?>
             </div>
-            <h3 class="category-name"><?= e($cat['name']) ?></h3>
-            <p class="category-desc"><?= e($cat['description']) ?></p>
-          </a>
+          </div>
         <?php endforeach; ?>
       </div>
     </section>

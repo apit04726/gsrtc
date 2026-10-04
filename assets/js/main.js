@@ -430,6 +430,88 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize smooth scroller
   initSmoothScroller();
   window.initSmoothScroller = initSmoothScroller;
+
+  // 8. Card Stack Scroll Animation (Smooth Scaling & Overlap Depth for Categories)
+  function initCardStackScroll() {
+    const stackWrapper = document.getElementById('categoriesStack');
+    if (!stackWrapper) return;
+
+    const rows = Array.from(stackWrapper.querySelectorAll('.category-stack-row'));
+    if (!rows.length) return;
+
+    // Skip if user prefers reduced motion
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    let ticking = false;
+
+    function updateCardStack() {
+      const wrapperRect = stackWrapper.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Only calculate when stack section is in or near the viewport
+      if (wrapperRect.bottom < 0 || wrapperRect.top > windowHeight) {
+        ticking = false;
+        return;
+      }
+
+      rows.forEach((row, i) => {
+        const cardsEl = row.querySelector('.category-row-cards');
+        const nextRow = rows[i + 1];
+        if (!cardsEl) return;
+
+        if (!nextRow) {
+          cardsEl.style.transform = '';
+          cardsEl.style.filter = '';
+          return;
+        }
+
+        const currentRect = row.getBoundingClientRect();
+        const nextRect = nextRow.getBoundingClientRect();
+        const stickTop = parseFloat(window.getComputedStyle(row).top) || 85;
+
+        const distance = nextRect.top - currentRect.top;
+        const rowHeight = currentRect.height;
+
+        // When current row reaches sticky position and next row is overlapping it
+        if (currentRect.top <= stickTop + 8 && distance < rowHeight) {
+          const progress = Math.max(0, Math.min(1, 1 - (distance / rowHeight)));
+          const scale = 1 - (progress * 0.04);
+          const brightness = 1 - (progress * 0.05);
+
+          cardsEl.style.transform = `scale(${scale.toFixed(4)})`;
+          cardsEl.style.filter = `brightness(${brightness.toFixed(3)})`;
+        } else {
+          cardsEl.style.transform = '';
+          cardsEl.style.filter = '';
+        }
+      });
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateCardStack);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateCardStack);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Initial run
+    updateCardStack();
+  }
+
+  // Initialize Card Stack Animation
+  initCardStackScroll();
+  window.initCardStackScroll = initCardStackScroll;
 });
 
 
