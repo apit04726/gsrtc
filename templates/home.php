@@ -227,9 +227,9 @@ require_once INCLUDES_PATH . '/header.php';
     <!-- In-Content Ad Placement -->
     <?php render_ad_slot('in_article'); ?>
 
-    <!-- Featured & Essential Guides (Auto-Responsive Grid) -->
-    <section style="margin-bottom: 4rem;">
-      <div class="section-header" data-animate="fade-up">
+    <!-- Featured & Essential Guides (Unique 2-Card Tier Stack Scroll Animation) -->
+    <section class="articles-stack-section" style="margin-bottom: 5rem;">
+      <div class="section-header articles-sticky-header" data-animate="fade-up">
         <div class="section-title-group">
           <h2>મુસાફરો માટે સૌથી ઉપયોગી લેખો</h2>
           <p>મુસાફરી દરમિયાન સૌથી વધુ પૂછાતા પ્રશ્નો અને તેના સચોટ જવાબો</p>
@@ -237,30 +237,40 @@ require_once INCLUDES_PATH . '/header.php';
         <a href="<?= url('category/before-travel') ?>" class="btn btn-outline-primary btn-sm">બધા લેખ જુઓ &rarr;</a>
       </div>
 
-      <div class="articles-grid" data-stagger="60" data-animate-child="fade-up">
-        <?php foreach ($featuredArticles as $art): ?>
-          <?php 
-            $cat = get_category_by_slug($art['category_id'] ?? '');
-          ?>
-          <article class="article-card">
-            <div class="article-card-body">
-              <div class="article-meta">
-                <span class="article-category-badge"><?= e($cat['name'] ?? 'માર્ગદર્શન') ?></span>
-                <span>&bull;</span>
-                <span><?= e($art['reading_time'] ?? '5 મિનિટ') ?></span>
-              </div>
-              <h3 class="article-title">
-                <a href="<?= url('article/' . $art['slug']) ?>"><?= e($art['title']) ?></a>
-              </h3>
-              <p class="article-excerpt"><?= e($art['excerpt']) ?></p>
-              <div class="article-footer">
-                <span style="font-size:0.8rem; color:var(--text-muted);">અપડેટ: <?= date('d M Y', strtotime($art['updated_at'] ?? '2026-01-01')) ?></span>
-                <a href="<?= url('article/' . $art['slug']) ?>" class="read-more-link">
-                  વાંચો <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-              </div>
+      <div class="articles-stack-wrapper" id="articlesStack">
+        <?php 
+          $articleRows = array_chunk($featuredArticles, 3);
+          $totalArticleRows = count($articleRows);
+        ?>
+        <?php foreach ($articleRows as $rowIndex => $rowArticles): ?>
+          <div class="articles-stack-row" data-stack-index="<?= $rowIndex ?>" style="--stack-index: <?= $rowIndex ?>; --total-stacks: <?= $totalArticleRows ?>;">
+            <div class="articles-row-cards">
+              <?php foreach ($rowArticles as $art): ?>
+                <?php 
+                  $cat = get_category_by_slug($art['category_id'] ?? '');
+                ?>
+                <article class="article-card">
+                  <div class="article-card-body">
+                    <div class="article-meta">
+                      <span class="article-category-badge"><?= e($cat['name'] ?? 'માર્ગદર્શન') ?></span>
+                      <span>&bull;</span>
+                      <span><?= e($art['reading_time'] ?? '5 મિનિટ') ?></span>
+                    </div>
+                    <h3 class="article-title">
+                      <a href="<?= url('article/' . $art['slug']) ?>"><?= e($art['title']) ?></a>
+                    </h3>
+                    <p class="article-excerpt"><?= e($art['excerpt']) ?></p>
+                    <div class="article-footer">
+                      <span style="font-size:0.8rem; color:var(--text-muted);">અપડેટ: <?= date('d M Y', strtotime($art['updated_at'] ?? '2026-01-01')) ?></span>
+                      <a href="<?= url('article/' . $art['slug']) ?>" class="read-more-link">
+                        વાંચો <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              <?php endforeach; ?>
             </div>
-          </article>
+          </div>
         <?php endforeach; ?>
       </div>
     </section>

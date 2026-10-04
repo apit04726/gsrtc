@@ -509,10 +509,88 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCardStack();
   }
 
-  // Initialize Card Stack Animation
+  // 9. Articles 3-Card Stack Scroll Animation
+  function initArticlesStackScroll() {
+    const stackWrapper = document.getElementById('articlesStack');
+    if (!stackWrapper) return;
+
+    const rows = Array.from(stackWrapper.querySelectorAll('.articles-stack-row'));
+    if (!rows.length) return;
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    let ticking = false;
+
+    function updateArticlesStack() {
+      const wrapperRect = stackWrapper.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (wrapperRect.bottom < 0 || wrapperRect.top > windowHeight) {
+        ticking = false;
+        return;
+      }
+
+      rows.forEach((row, i) => {
+        const gridEl = row.querySelector('.articles-row-cards');
+        const nextRow = rows[i + 1];
+        if (!gridEl) return;
+
+        if (!nextRow) {
+          gridEl.style.transform = '';
+          gridEl.style.filter = '';
+          return;
+        }
+
+        const currentRect = row.getBoundingClientRect();
+        const nextRect = nextRow.getBoundingClientRect();
+        const stickTop = parseFloat(window.getComputedStyle(row).top) || 160;
+
+        const distance = nextRect.top - currentRect.top;
+        const rowHeight = currentRect.height;
+
+        if (currentRect.top <= stickTop + 8 && distance < rowHeight) {
+          const progress = Math.max(0, Math.min(1, 1 - (distance / rowHeight)));
+          const scale = 1 - (progress * 0.04);
+          const brightness = 1 - (progress * 0.05);
+
+          gridEl.style.transform = `scale(${scale.toFixed(4)})`;
+          gridEl.style.filter = `brightness(${brightness.toFixed(3)})`;
+        } else {
+          gridEl.style.transform = '';
+          gridEl.style.filter = '';
+        }
+      });
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateArticlesStack);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateArticlesStack);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    updateArticlesStack();
+  }
+
+  // Initialize Card Stack Animations
   initCardStackScroll();
   window.initCardStackScroll = initCardStackScroll;
+
+  initArticlesStackScroll();
+  window.initArticlesStackScroll = initArticlesStackScroll;
 });
+
 
 
 
