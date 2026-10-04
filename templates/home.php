@@ -35,7 +35,7 @@ require_once INCLUDES_PATH . '/header.php';
     <div class="pro-hero-grid">
       
       <!-- Left Column: Authoritative Content & Search Box -->
-      <div class="pro-hero-content">
+      <div class="pro-hero-content" data-animate="fade-right">
         <div class="hero-kicker">
           <span class="kicker-pulse"></span>
           <span>GSRTC અને ગુજરાત બસ મુસાફર સહાય પોર્ટલ</span>
@@ -101,7 +101,7 @@ require_once INCLUDES_PATH . '/header.php';
       </div>
 
       <!-- Right Column: Smart Showcase Card Slider -->
-      <div class="pro-hero-slider-wrap">
+      <div class="pro-hero-slider-wrap" data-animate="fade-left">
         <div class="showcase-card" id="heroSlider">
         
           <!-- Slide 1: Highway Journey -->
@@ -168,7 +168,7 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container">
 
     <!-- Interactive Checklist Teaser Card (White & Primary #015fc9) -->
-    <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color:#fff; border-radius: var(--radius-lg); padding: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 3.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; box-shadow: var(--shadow-lg);">
+    <div data-animate="fade-up" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color:#fff; border-radius: var(--radius-lg); padding: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 3.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; box-shadow: var(--shadow-lg);">
       <div style="max-width: 680px;">
         <h2 style="color:#fff; font-size: clamp(1.25rem, 1.5vw + 0.8rem, 1.6rem); margin: 0 0 0.4rem;">બસ મુસાફરી પહેલાંનું ઇન્ટરેક્ટિવ ચેકલિસ્ટ</h2>
         <p style="color: #e2e8f0; margin: 0; font-size: clamp(0.9rem, 0.2vw + 0.85rem, 1rem);">ઘરેથી નીકળતા પહેલા જરૂરી દસ્તાવેજ, રોકડ, દવાઓ અને સામાનનું લિસ્ટ તમારા મોબાઇલમાં ટીક માર્ક કરો.</p>
@@ -180,18 +180,20 @@ require_once INCLUDES_PATH . '/header.php';
     </div>
 
     <!-- Zero-Investment Bus Ticket Booking CTA Card -->
-    <?php render_ticket_booking_cta('home'); ?>
+    <div data-animate="fade-up">
+      <?php render_ticket_booking_cta('home'); ?>
+    </div>
 
     <!-- 12 Categories Grid (Auto-Responsive) -->
     <section style="margin-bottom: 4rem;">
-      <div class="section-header">
+      <div class="section-header" data-animate="fade-up">
         <div class="section-title-group">
           <h2>વિષય મુજબ માર્ગદર્શન (Categories)</h2>
           <p>તમારી મુસાફરીને અનુરૂપ વિષય પસંદ કરી સચોટ માહિતી મેળવો</p>
         </div>
       </div>
 
-      <div class="categories-grid">
+      <div class="categories-grid" data-stagger="50" data-animate-child="fade-up">
         <?php foreach ($categories as $cat): ?>
           <?php 
             $count = $categoryCounts[$cat['id']] ?? 0;
@@ -217,7 +219,7 @@ require_once INCLUDES_PATH . '/header.php';
 
     <!-- Featured & Essential Guides (Auto-Responsive Grid) -->
     <section style="margin-bottom: 4rem;">
-      <div class="section-header">
+      <div class="section-header" data-animate="fade-up">
         <div class="section-title-group">
           <h2>મુસાફરો માટે સૌથી ઉપયોગી લેખો</h2>
           <p>મુસાફરી દરમિયાન સૌથી વધુ પૂછાતા પ્રશ્નો અને તેના સચોટ જવાબો</p>
@@ -225,7 +227,7 @@ require_once INCLUDES_PATH . '/header.php';
         <a href="<?= url('category/before-travel') ?>" class="btn btn-outline-primary btn-sm">બધા લેખ જુઓ &rarr;</a>
       </div>
 
-      <div class="articles-grid">
+      <div class="articles-grid" data-stagger="60" data-animate-child="fade-up">
         <?php foreach ($featuredArticles as $art): ?>
           <?php 
             $cat = get_category_by_slug($art['category_id'] ?? '');
@@ -254,13 +256,13 @@ require_once INCLUDES_PATH . '/header.php';
     </section>
 
     <!-- Step-by-Step Passenger Journey Timeline (Auto-Responsive Grid) -->
-    <section class="journey-timeline-section">
-      <div class="journey-timeline-header">
+    <section class="journey-timeline-section" data-animate="fade-up">
+      <div class="journey-timeline-header" data-animate="fade-up">
         <h2 class="journey-timeline-title">સલામત મુસાફરીનો 4-તબક્કાનો ક્રમ</h2>
         <p class="journey-timeline-desc">દરેક પગલે શું સાવચેતી રાખવી તે સરળતાથી સમજો</p>
       </div>
 
-      <div class="journey-timeline-grid">
+      <div class="journey-timeline-grid" data-stagger="80" data-animate-child="fade-up">
         <!-- Stage 1 -->
         <div class="stage-card">
           <span class="stage-badge">તબક્કો ૧</span>
@@ -295,7 +297,7 @@ require_once INCLUDES_PATH . '/header.php';
     <?php render_ad_slot('below_article'); ?>
 
     <!-- Why This Platform / Trust Statement -->
-    <section style="background: var(--primary-subtle); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(1.5rem, 3vw, 2.5rem); text-align: center; max-width: 860px; margin: 0 auto;">
+    <section data-animate="fade-up" style="background: var(--primary-subtle); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(1.5rem, 3vw, 2.5rem); text-align: center; max-width: 860px; margin: 0 auto;">
       <h3 style="font-size: clamp(1.15rem, 1vw + 0.9rem, 1.4rem); margin-bottom: 0.75rem; color: var(--primary-dark);">શા માટે આ માર્ગદર્શિકા મુસાફરો માટે ઉપયોગી છે?</h3>
       <p style="font-size: 0.95rem; color: #475569; margin-bottom: 1.5rem;">
         આ વેબસાઇટ કોઈ ફેક ટિકિટ બુકિંગ કે કમ્પ્યુટર જનરેટેડ એઆઈ કન્ટેન્ટ નથી બનાવતી. અહીં આપવામાં આવેલી દરેક માહિતી વાસ્તવિક મુસાફરોના અનુભવો, મોટર વ્હીકલ નિયમો અને પરિવહનની જાહેર માર્ગદર્શિકાઓને ધ્યાને રાખીને શુદ્ધ સરળ ગુજરાતીમાં તૈયાર કરવામાં આવી છે.
@@ -310,3 +312,4 @@ require_once INCLUDES_PATH . '/header.php';
 </main>
 
 <?php require_once INCLUDES_PATH . '/footer.php'; ?>
+

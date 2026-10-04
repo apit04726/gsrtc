@@ -77,7 +77,7 @@ require_once INCLUDES_PATH . '/header.php';
 <main class="main-layout">
   <div class="container" style="max-width: 860px;">
     
-    <div style="text-align: center; margin-bottom: 2rem;">
+    <div data-animate="fade-down" style="text-align: center; margin-bottom: 2rem;">
       <span class="article-category-badge" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">મુસાફરી પૂર્વ તૈયારી ટૂલ</span>
       <h1 style="font-size: 2.2rem; margin: 0.75rem 0 0.5rem; color: var(--primary);">બસ મુસાફરી માટે જરૂરી વસ્તુઓની Checklist</h1>
       <p style="color: var(--text-muted); font-size: 1.05rem;">
@@ -86,7 +86,7 @@ require_once INCLUDES_PATH . '/header.php';
     </div>
 
     <!-- Action Buttons -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+    <div data-animate="fade-in" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
       <span style="font-size: 0.9rem; color: #15803d; font-weight: 700;">
         ✓ ટીક કરેલ વસ્તુઓ ઓટોમેટિક સેવ થાય છે
       </span>
@@ -103,9 +103,9 @@ require_once INCLUDES_PATH . '/header.php';
     </div>
 
     <!-- Checklist Card -->
-    <div class="interactive-checklist-card">
+    <div class="interactive-checklist-card" data-animate="fade-up" data-stagger="60" data-animate-child="fade-up">
       <?php foreach ($checklistGroups as $group): ?>
-        <div class="checklist-group">
+        <div class="checklist-group" data-animate="fade-up">
           <h3 class="checklist-group-title">
             <?= e($group['title']) ?>
           </h3>
@@ -121,7 +121,7 @@ require_once INCLUDES_PATH . '/header.php';
       <?php endforeach; ?>
 
       <!-- Share Widget -->
-      <div style="margin-top: 2rem; padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md); text-align: center;">
+      <div data-animate="fade-up" style="margin-top: 2rem; padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md); text-align: center;">
         <p style="font-weight: 700; color: var(--primary); margin-bottom: 0.75rem;">આ ચેકલિસ્ટ તમારા પરિવાર કે મિત્રો સાથે શેર કરો:</p>
         <a href="https://api.whatsapp.com/send?text=<?= rawurlencode("🚌 *GSRTC બસ મુસાફરી ચેકલિસ્ટ - ગુજરાત બસ માર્ગદર્શક*\n\nઘરેથી નીકળતા પહેલા જરૂરી દસ્તાવેજ, રોકડ, દવાઓ અને સામાનનું લિસ્ટ તમારા મોબાઇલમાં ચેક કરો:\n" . url('checklist')) ?>" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">
           વ્હોટ્સએપ પર શેર કરો

@@ -315,4 +315,122 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // 6. Smart Scroll Animations System (Fade In, Fade Out, Fade Left, Fade Right, Fade Up, Fade Down)
+  function initScrollAnimations() {
+    // Add js-ready class to activate CSS animation initial states cleanly
+    document.documentElement.classList.add('js-ready');
+
+    // Accessibility: Respect user's motion preference
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('[data-animate], [data-aos], .fade-in, .fade-left, .fade-right, .fade-up, .fade-down, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down').forEach(el => {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
+
+    // Auto-setup children of [data-stagger] grids if children don't already have explicit animate attr
+    document.querySelectorAll('[data-stagger]').forEach(container => {
+      const children = container.children;
+      const baseAnim = container.dataset.animateChild || 'fade-up';
+      const staggerMs = parseInt(container.dataset.stagger, 10) || 70;
+      Array.from(children).forEach((child, index) => {
+        if (!child.hasAttribute('data-animate') && 
+            !child.classList.contains('fade-in') && 
+            !child.classList.contains('fade-up') && 
+            !child.classList.contains('fade-left') && 
+            !child.classList.contains('fade-right')) {
+          child.setAttribute('data-animate', baseAnim);
+          if (!child.hasAttribute('data-delay')) {
+            child.setAttribute('data-delay', (index * staggerMs));
+          }
+        }
+      });
+    });
+
+    const animateSelector = '[data-animate], [data-aos], .fade-in, .fade-out, .fade-left, .fade-right, .fade-up, .fade-down, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down';
+    const animatedElements = document.querySelectorAll(animateSelector);
+    if (!animatedElements.length) return;
+
+    // Fallback if IntersectionObserver is unsupported in very old browsers
+    if (!('IntersectionObserver' in window)) {
+      animatedElements.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -30px 0px',
+      threshold: 0.08
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        if (entry.isIntersecting) {
+          // Apply inline delay if attribute is specified
+          if (el.dataset.delay) {
+            el.style.transitionDelay = `${el.dataset.delay}ms`;
+          }
+
+          // Apply inline duration if attribute is specified
+          if (el.dataset.duration) {
+            el.style.transitionDuration = `${el.dataset.duration}ms`;
+          }
+
+          el.classList.add('is-visible');
+          el.setAttribute('data-animated', 'true');
+        } else {
+          // Re-trigger animation when scrolling up or down back into view
+          el.classList.remove('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    animatedElements.forEach(el => observer.observe(el));
+  }
+
+  // Initialize animations
+  initScrollAnimations();
+  window.initScrollAnimations = initScrollAnimations;
+
+  // 7. Clean Smooth Anchor Scroller
+  function initSmoothScroller() {
+    // Also bind any .footer-back-to-top or [href="#top"] links
+    document.querySelectorAll('.footer-back-to-top, [href="#top"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Smooth scroll for all internal hashtag anchor links (e.g. href="#categories", href="#faq")
+    document.querySelectorAll('a[href^="#"]:not([href="#"]):not([href="#!"])').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          const navOffset = 85;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+
+  // Initialize smooth scroller
+  initSmoothScroller();
+  window.initSmoothScroller = initSmoothScroller;
 });
+
+
+

@@ -109,10 +109,24 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
 <body>
 
   <!-- Top Disclaimer Notice -->
-  <div class="top-disclaimer-bar">
-    <div class="container">
-      <span class="badge-unofficial">સ્વતંત્ર માહિતી પોર્ટલ</span>
-      આ વેબસાઇટ GSRTC કે ગુજરાત સરકાર સાથે સંલગ્ન નથી. મુસાફરોની સુવિધા માટે માર્ગદર્શન પૂરું પાડતો સ્વતંત્ર બ્લોગ છે.
+  <div class="top-disclaimer-bar" role="region" aria-label="અસ્વીકરણ">
+    <div class="top-disclaimer-track">
+      <div class="top-disclaimer-item">
+        <span class="badge-unofficial">સ્વતંત્ર માહિતી પોર્ટલ</span>
+        આ વેબસાઇટ GSRTC કે ગુજરાત સરકાર સાથે સંલગ્ન નથી. મુસાફરોની સુવિધા માટે માર્ગદર્શન પૂરું પાડતો સ્વતંત્ર બ્લોગ છે.
+      </div>
+      <div class="top-disclaimer-item">
+        <span class="badge-unofficial">સ્વતંત્ર માહિતી પોર્ટલ</span>
+        આ વેબસાઇટ GSRTC કે ગુજરાત સરકાર સાથે સંલગ્ન નથી. મુસાફરોની સુવિધા માટે માર્ગદર્શન પૂરું પાડતો સ્વતંત્ર બ્લોગ છે.
+      </div>
+      <div class="top-disclaimer-item" aria-hidden="true">
+        <span class="badge-unofficial">સ્વતંત્ર માહિતી પોર્ટલ</span>
+        આ વેબસાઇટ GSRTC કે ગુજરાત સરકાર સાથે સંલગ્ન નથી. મુસાફરોની સુવિધા માટે માર્ગદર્શન પૂરું પાડતો સ્વતંત્ર બ્લોગ છે.
+      </div>
+      <div class="top-disclaimer-item" aria-hidden="true">
+        <span class="badge-unofficial">સ્વતંત્ર માહિતી પોર્ટલ</span>
+        આ વેબસાઇટ GSRTC કે ગુજરાત સરકાર સાથે સંલગ્ન નથી. મુસાફરોની સુવિધા માટે માર્ગદર્શન પૂરું પાડતો સ્વતંત્ર બ્લોગ છે.
+      </div>
     </div>
   </div>
 

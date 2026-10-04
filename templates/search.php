@@ -17,7 +17,7 @@ require_once INCLUDES_PATH . '/header.php';
 ?>
 
 <!-- Search Header Banner -->
-<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
+<section data-animate="fade-down" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
   <div class="container">
     <div style="max-width: 720px; margin: 0 auto; text-align: center;">
       <h1 style="color:#fff; font-size: 2rem; margin-bottom: 0.5rem;">માહિતી શોધો (Search Guides)</h1>
@@ -53,7 +53,7 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container">
 
     <?php if ($query !== ''): ?>
-      <div style="margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+      <div data-animate="fade-in" style="margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
         <h2 style="font-size: 1.4rem; margin: 0; color: var(--primary);">
           '<strong><?= e($query) ?></strong>' માટે <span style="color: var(--accent);"><?= count($results) ?></span> પરિણામો મળ્યા
         </h2>
@@ -63,7 +63,7 @@ require_once INCLUDES_PATH . '/header.php';
       </div>
 
       <?php if (empty($results)): ?>
-        <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 3rem; text-align: center; max-width: 680px; margin: 2rem auto;">
+        <div data-animate="fade-up" style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 3rem; text-align: center; max-width: 680px; margin: 2rem auto;">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" style="margin-bottom: 1rem;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
           <h3 style="color: var(--primary); margin-bottom: 0.5rem;">કોઈ મેળ ખાતા લેખો મળ્યા નથી</h3>
           <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
@@ -77,7 +77,7 @@ require_once INCLUDES_PATH . '/header.php';
           </div>
         </div>
       <?php else: ?>
-        <div class="articles-grid">
+        <div class="articles-grid" data-stagger="60" data-animate-child="fade-up">
           <?php foreach ($results as $art): ?>
             <?php $cat = get_category_by_slug($art['category_id'] ?? ''); ?>
             <article class="article-card">

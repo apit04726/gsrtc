@@ -12,7 +12,7 @@ require_once INCLUDES_PATH . '/header.php';
 ?>
 
 <!-- Terms Header -->
-<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
+<section data-animate="fade-down" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
   <div class="container">
     <nav class="breadcrumbs" style="color: #cbd5e1; margin-bottom: 0.75rem;" aria-label="Breadcrumb">
       <a href="<?= url() ?>" style="color: #cbd5e1;">હોમ</a>
@@ -31,7 +31,7 @@ require_once INCLUDES_PATH . '/header.php';
 
 <main class="main-layout">
   <div class="container" style="max-width: 860px;">
-    <article class="article-main-content">
+    <article class="article-main-content" data-animate="fade-up">
       <div class="article-body-text">
         <p><strong>ગુજરાત બસ માર્ગદર્શક</strong> વેબસાઇટની મુલાકાત લેવા બદલ આપનો આભાર. આ વેબસાઇટનો ઉપયોગ કરીને તમે નીચે જણાવેલ નિયમો અને શરતો સાથે સંપૂર્ણપણે સહમત થાઓ છો:</p>
 

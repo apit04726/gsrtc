@@ -46,7 +46,7 @@ require_once INCLUDES_PATH . '/header.php';
 ?>
 
 <!-- Contact Header -->
-<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
+<section data-animate="fade-down" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
   <div class="container">
     <nav class="breadcrumbs" style="color: #cbd5e1; margin-bottom: 0.75rem;" aria-label="Breadcrumb">
       <a href="<?= url() ?>" style="color: #cbd5e1;">હોમ</a>
@@ -67,9 +67,9 @@ require_once INCLUDES_PATH . '/header.php';
   <div class="container" style="max-width: 860px;">
     
     <!-- Important Notice Box -->
-    <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 2rem;">
+    <div data-animate="fade-up" style="background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 2rem;">
       <h3 style="color: #92400e; font-size: 1.05rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
         સંપર્ક કરતા પહેલાં મહત્વપૂર્ણ નોંધ:
       </h3>
       <p style="font-size: 0.9rem; color: #78350f; margin: 0; line-height: 1.6;">
@@ -78,18 +78,18 @@ require_once INCLUDES_PATH . '/header.php';
     </div>
 
     <?php if ($successMsg): ?>
-      <div class="alert alert-success">
+      <div class="alert alert-success" data-animate="fade-in">
         ✓ <?= e($successMsg) ?>
       </div>
     <?php endif; ?>
 
     <?php if ($errorMsg): ?>
-      <div class="alert alert-danger">
+      <div class="alert alert-danger" data-animate="fade-in">
         ✗ <?= e($errorMsg) ?>
       </div>
     <?php endif; ?>
 
-    <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm);">
+    <div data-animate="fade-up" style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm);">
       <form action="<?= url('contact-us') ?>" method="POST">
         
         <div class="form-group">
@@ -120,7 +120,7 @@ require_once INCLUDES_PATH . '/header.php';
     </div>
 
     <!-- Official Help Directory Box (Smart Direct Call Cards) -->
-    <div class="contact-help-directory">
+    <div class="contact-help-directory" data-animate="fade-up">
       <div class="contact-help-header">
         <h3 class="contact-help-title">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -129,7 +129,7 @@ require_once INCLUDES_PATH . '/header.php';
         <span class="contact-help-subtitle">કૉલ કરવા માટે કાર્ડ પર ક્લિક કરો</span>
       </div>
 
-      <div class="contact-call-grid">
+      <div class="contact-call-grid" data-stagger="50" data-animate-child="fade-up">
         <a href="tel:18002336666" class="contact-call-card contact-card-amber" title="1800-233-6666 પર કૉલ કરો">
           <div class="contact-call-card-top">
             <span class="contact-call-label">GSRTC સત્તાવાર ટોલ ફ્રી</span>

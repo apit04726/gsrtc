@@ -33,7 +33,7 @@ require_once INCLUDES_PATH . '/header.php';
     <span style="color: var(--primary); font-weight:600;">સાઇટમેપ (HTML Sitemap)</span>
   </nav>
 
-  <div class="sitemap-hero" style="background: linear-gradient(135deg, #015fc9 0%, #0284c7 100%); color: #fff; padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; box-shadow: var(--shadow-md);">
+  <div class="sitemap-hero" data-animate="fade-down" style="background: linear-gradient(135deg, #015fc9 0%, #0284c7 100%); color: #fff; padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; box-shadow: var(--shadow-md);">
     <h1 style="color: #fff; font-size: 1.85rem; margin-bottom: 0.5rem;">સંપૂર્ણ સાઇટમેપ (Website Sitemap)</h1>
     <p style="color: #e0f2fe; margin: 0; font-size: 1rem; max-width: 800px;">
       GSRTC ગુજરાત એસટી બસ માર્ગદર્શક પોર્ટલ પર ઉપલબ્ધ તમામ લેખો, મુસાફરી નિયમો, કેટેગરી અને સાધનોની વિગતવાર યાદી. કોઈપણ પેજ પર જવા માટે શીર્ષક પર ક્લિક કરો.
@@ -43,7 +43,7 @@ require_once INCLUDES_PATH . '/header.php';
   <!-- Main Sections Grid -->
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
     <!-- Key Tools & Pages -->
-    <div style="background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+    <div data-animate="fade-right" style="background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm);">
       <h2 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
         <span>⭐</span> મુખ્ય પૃષ્ઠો અને સાધનો
       </h2>
@@ -57,7 +57,7 @@ require_once INCLUDES_PATH . '/header.php';
     </div>
 
     <!-- Trust & Policies -->
-    <div style="background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+    <div data-animate="fade-left" style="background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm);">
       <h2 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
         <span>🛡️</span> નીતિ અને કાયદાકીય પાનાં
       </h2>
@@ -74,14 +74,14 @@ require_once INCLUDES_PATH . '/header.php';
   </div>
 
   <!-- Category & Articles Silo List -->
-  <h2 style="font-size: 1.5rem; color: var(--text-dark); margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+  <h2 data-animate="fade-up" style="font-size: 1.5rem; color: var(--text-dark); margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
     શ્રેણીવાર તમામ માર્ગદર્શિકા લેખો (All Guides by Category)
   </h2>
 
   <?php foreach ($categories as $cat): 
     $catArticles = get_articles('published', $cat['id']);
   ?>
-  <div style="background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);">
+  <div data-animate="fade-up" style="background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);">
     <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
       <h3 style="margin: 0; font-size: 1.25rem;">
         <a href="<?= url('category/' . $cat['slug']) ?>" style="color: var(--primary); text-decoration: none;">

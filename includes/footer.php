@@ -45,9 +45,9 @@
     <div class="footer-bg-shape shape-orb-2" aria-hidden="true"></div>
 
     <div class="container footer-content-wrap">
-      <div class="footer-grid">
+      <div class="footer-grid" data-stagger="80" data-animate-child="fade-up">
         <!-- Brand Summary -->
-        <div class="footer-brand">
+        <div class="footer-brand" data-animate="fade-right">
           <div class="footer-brand-header">
             <div class="footer-brand-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Quick Links -->
-        <div class="footer-col">
+        <div class="footer-col" data-animate="fade-up">
           <h4 class="col-heading"><span class="heading-shape"></span>ઉપયોગી માર્ગદર્શન</h4>
           <ul class="footer-links">
             <li><a href="<?= url() ?>"><span class="link-chevron">›</span> મુખ્ય પૃષ્ઠ</a></li>
@@ -91,7 +91,7 @@
         </div>
 
         <!-- Trust & Policies -->
-        <div class="footer-col">
+        <div class="footer-col" data-animate="fade-up">
           <h4 class="col-heading"><span class="heading-shape"></span>નીતિ અને ટ્રસ્ટ</h4>
           <ul class="footer-links">
             <li><a href="<?= url('about-us') ?>"><span class="link-chevron">›</span> અમારા વિશે (About Us)</a></li>
@@ -106,7 +106,7 @@
         </div>
 
         <!-- Emergency Numbers (Smart Direct Call Cards) -->
-        <div class="footer-col footer-emergency-col">
+        <div class="footer-col footer-emergency-col" data-animate="fade-left">
           <h4 class="col-heading"><span class="heading-shape pulse"></span>તાત્કાલિક સહાય નંબરો</h4>
           <p class="emergency-subtitle">કૉલ કરવા માટે નંબર પર ક્લિક કરો:</p>
           
@@ -200,7 +200,7 @@
       </div>
 
       <!-- Legal Disclaimer Box with Unique Shape & Shield Badge -->
-      <div class="footer-disclaimer-box">
+      <div class="footer-disclaimer-box" data-animate="fade-up">
         <div class="disclaimer-header">
           <div class="disclaimer-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -215,7 +215,7 @@
       </div>
 
       <!-- Bottom Bar -->
-      <div class="footer-bottom">
+      <div class="footer-bottom" data-animate="fade-up">
         <div class="footer-copyright">
           <span>&copy; <?= date('Y') ?> <strong><?= e(SITE_NAME) ?></strong>. સર્વાધિકાર સુરક્ષિત.</span>
           <span class="footer-badge-mini">An Independent Passenger Guide</span>

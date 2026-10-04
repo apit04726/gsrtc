@@ -60,7 +60,7 @@ require_once INCLUDES_PATH . '/header.php';
         </nav>
 
         <!-- Article Header -->
-        <header class="article-header">
+        <header class="article-header" data-animate="fade-down">
           <h1 class="article-h1"><?= e($article['title']) ?></h1>
 
           <div class="article-byline">
@@ -84,7 +84,7 @@ require_once INCLUDES_PATH . '/header.php';
 
         <!-- 1. Direct Answer Box (People-First SEO) -->
         <?php if (!empty($article['direct_answer'])): ?>
-          <div class="direct-answer-box">
+          <div class="direct-answer-box" data-animate="fade-up">
             <div class="direct-answer-header">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
               <span>ટૂંકો અને સીધો જવાબ (Quick Direct Answer)</span>
@@ -95,7 +95,7 @@ require_once INCLUDES_PATH . '/header.php';
 
         <!-- 2. Practical Checklist Box -->
         <?php if (!empty($article['checklist']) && is_array($article['checklist'])): ?>
-          <div class="checklist-box">
+          <div class="checklist-box" data-animate="fade-up">
             <h3 class="checklist-title">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
               મુસાફરી પેકિંગ & જરૂરી ચેકલિસ્ટ
@@ -121,7 +121,7 @@ require_once INCLUDES_PATH . '/header.php';
 
         <!-- 4. Important Warnings Box -->
         <?php if (!empty($article['warnings']) && is_array($article['warnings'])): ?>
-          <div class="warning-box">
+          <div class="warning-box" data-animate="fade-up">
             <div class="warning-title">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
               <span>અગત્યની સાવચેતીઓ અને સામાન્ય ભૂલો</span>
@@ -135,11 +135,13 @@ require_once INCLUDES_PATH . '/header.php';
         <?php endif; ?>
 
         <!-- High-Converting Ticket Booking CTA -->
-        <?php render_ticket_booking_cta('article'); ?>
+        <div data-animate="fade-up">
+          <?php render_ticket_booking_cta('article'); ?>
+        </div>
 
         <!-- 5. Visible FAQ Section (Strictly matches FAQ schema) -->
         <?php if (!empty($article['faqs']) && is_array($article['faqs'])): ?>
-          <section class="faq-section" aria-label="વારંવાર પૂછાતા પ્રશ્નો">
+          <section class="faq-section" data-animate="fade-up" aria-label="વારંવાર પૂછાતા પ્રશ્નો">
             <h2 class="faq-title">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
               વારંવાર પૂછાતા પ્રશ્નો (FAQs)
@@ -161,12 +163,12 @@ require_once INCLUDES_PATH . '/header.php';
         <?php endif; ?>
 
         <!-- Verification & Sources Notice -->
-        <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem 1.25rem; font-size: 0.85rem; color: #64748b; margin-top: 2rem;">
+        <div data-animate="fade-up" style="background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem 1.25rem; font-size: 0.85rem; color: #64748b; margin-top: 2rem;">
           <strong>માહિતી સ્ત્રોત અને ચકાસણી:</strong> આ લેખમાં સમાવિષ્ટ નિયમો મોટર વ્હીકલ એક્ટ, ગુજરાત રાજ્ય માર્ગ વાહન વ્યવહાર નિગમ (GSRTC) ની જાહેર સેવા નીતિઓ અને મુસાફર ચાર્ટરના આધારે સંકલિત કરવામાં આવ્યા છે. નિયમો અને ભાડાં સમયાંતરે સરકારી ઠરાવો મુજબ બદલાઈ શકે છે, તેથી યાત્રા કરતા પહેલાં સ્થાનિક ડેપો પર તાજી સ્થિતિ જાણી લેવી હિતાવહ છે. <a href="<?= url('sources-verification') ?>">સંપૂર્ણ નીતિ વાંચો &rarr;</a>
         </div>
 
         <!-- Social Share Bar -->
-        <div class="share-bar">
+        <div class="share-bar" data-animate="fade-up">
           <span class="share-label">આ માહિતી શેર કરો:</span>
           <?php 
             $shareUrl = rawurlencode($canonicalUrl);
@@ -190,9 +192,9 @@ require_once INCLUDES_PATH . '/header.php';
 
         <!-- Related Articles -->
         <?php if (!empty($relatedArticles)): ?>
-          <section class="related-articles-section">
+          <section class="related-articles-section" data-animate="fade-up">
             <h3 class="related-articles-heading">આ સંબંધિત અન્ય ઉપયોગી માર્ગદર્શન</h3>
-            <div class="related-articles-grid">
+            <div class="related-articles-grid" data-stagger="50" data-animate-child="fade-up">
               <?php foreach ($relatedArticles as $rel): ?>
                 <div class="related-article-card">
                   <h4 class="related-article-title">
@@ -214,14 +216,14 @@ require_once INCLUDES_PATH . '/header.php';
         <?php render_ad_slot('sidebar'); ?>
 
         <!-- Quick Checklist Widget -->
-        <div class="sidebar-widget" style="background: linear-gradient(135deg, #0f2942 0%, #1e3f66 100%); color:#fff;">
+        <div class="sidebar-widget" data-animate="fade-left" style="background: linear-gradient(135deg, #0f2942 0%, #1e3f66 100%); color:#fff;">
           <h3 style="color:#fff; font-size: 1.05rem; margin-bottom: 0.5rem;">મુસાફરી ચેકલિસ્ટ</h3>
           <p style="color:#cbd5e1; font-size: 0.82rem; margin-bottom: 1rem;">તમારી બેગ પેક કરતી વખતે કઈ વસ્તુ રહી નથી ગઈ તે જાતે ચેક કરો.</p>
           <a href="<?= url('checklist') ?>" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">ઇન્ટરેક્ટિવ ચેકલિસ્ટ &rarr;</a>
         </div>
 
         <!-- Categories Widget -->
-        <div class="sidebar-widget">
+        <div class="sidebar-widget" data-animate="fade-left">
           <h3 class="widget-title">બધા વિષયો (Categories)</h3>
           <ul class="widget-links">
             <?php foreach ($allCategories as $cat): ?>
@@ -235,7 +237,7 @@ require_once INCLUDES_PATH . '/header.php';
         </div>
 
         <!-- Emergency Numbers Widget (Smart Direct Call) -->
-        <div class="sidebar-widget emergency-sidebar-widget">
+        <div class="sidebar-widget emergency-sidebar-widget" data-animate="fade-left">
           <h3 class="widget-title emergency-widget-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             ઈમરજન્સી હેલ્પલાઇન

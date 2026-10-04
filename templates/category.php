@@ -32,7 +32,7 @@ require_once INCLUDES_PATH . '/header.php';
 ?>
 
 <!-- Category Header Banner -->
-<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
+<section data-animate="fade-down" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
   <div class="container">
     <nav class="breadcrumbs" style="color: #cbd5e1; margin-bottom: 0.75rem;" aria-label="Breadcrumb">
       <a href="<?= url() ?>" style="color: #cbd5e1;">હોમ</a>
@@ -57,13 +57,13 @@ require_once INCLUDES_PATH . '/header.php';
 <main class="main-layout">
   <div class="container">
     <?php if (empty($articles)): ?>
-      <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 3rem; text-align: center;">
+      <div data-animate="fade-up" style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 3rem; text-align: center;">
         <h3 style="color: var(--primary); margin-bottom: 0.5rem;">આ કેટેગરીમાં ટૂંક સમયમાં નવા લેખો પ્રકાશિત થશે.</h3>
         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">અમારી સંપાદકીય ટીમ મુસાફરો માટે અધિકૃત અને સચોટ માહિતી તૈયાર કરી રહી છે.</p>
         <a href="<?= url() ?>" class="btn btn-primary btn-sm">&larr; મુખ્ય પૃષ્ઠ પર પાછા જાઓ</a>
       </div>
     <?php else: ?>
-      <div class="articles-grid">
+      <div class="articles-grid" data-stagger="60" data-animate-child="fade-up">
         <?php foreach ($articles as $art): ?>
           <article class="article-card">
             <div class="article-card-body">
@@ -102,7 +102,7 @@ require_once INCLUDES_PATH . '/header.php';
     ?>
 
     <!-- Other Categories Quick Links (2-Column Responsive Grid) -->
-    <section class="other-categories-box" aria-label="અન્ય કેટેગરીઝ">
+    <section class="other-categories-box" data-animate="fade-up" aria-label="અન્ય કેટેગરીઝ">
       <div class="other-categories-header">
         <div class="other-categories-title-wrap">
           <div class="other-categories-icon" aria-hidden="true">
@@ -124,7 +124,7 @@ require_once INCLUDES_PATH . '/header.php';
         </a>
       </div>
 
-      <div class="other-categories-grid">
+      <div class="other-categories-grid" data-stagger="40" data-animate-child="fade-up">
         <?php foreach ($allCategories as $c): ?>
           <?php if ($c['slug'] !== $category['slug']): ?>
             <?php 

@@ -68,6 +68,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 85px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   width: 100%;
@@ -90,18 +91,20 @@ body {
 h1, h3, h4, h5, h6 {
   color: var(--primary-dark);
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.45;
   margin-bottom: 0.8rem;
   word-break: break-word;
+  padding-top: 2px;
 }
 
 h2 {
   color: var(--primary-dark);
   font-size: clamp(1.3rem, 1.8vw + 0.6rem, 1.9rem);
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.45;
   margin-bottom: 0.8rem;
   word-break: break-word;
+  padding-top: 2px;
 }
 
 h1 { font-size: clamp(1.6rem, 2.5vw + 0.8rem, 2.5rem); }
@@ -145,11 +148,34 @@ img {
   background: var(--primary-light);
   color: var(--primary-dark);
   font-size: clamp(0.78rem, 0.2vw + 0.74rem, 0.86rem);
-  padding: 0.45rem 1rem;
+  padding: 0.42rem 0;
   border-bottom: 1px solid var(--border);
-  text-align: center;
+  overflow: hidden;
   font-weight: 500;
   line-height: 1.6;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+.top-disclaimer-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5rem;
+  white-space: nowrap;
+  width: max-content;
+  animation: topDisclaimerScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.top-disclaimer-bar:hover .top-disclaimer-track {
+  animation-play-state: paused;
+}
+
+.top-disclaimer-item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .top-disclaimer-bar .badge-unofficial {
@@ -178,6 +204,15 @@ img {
   background-color: #0b5ed7;
   border-color: #0a58ca;
   color: #ffffff;
+}
+
+@keyframes topDisclaimerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 /* Main Site Header */
@@ -229,19 +264,22 @@ img {
 .brand-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-width: 0;
+  padding: 3px 0;
 }
 
 .brand-text .brand-title {
   font-size: clamp(1rem, 1.3vw + 0.62rem, 1.35rem);
   margin: 0;
   color: var(--primary);
-  line-height: 1.2;
+  line-height: 1.45;
   font-weight: 800;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  overflow: visible;
 }
 
 .brand-text .brand-sub {
@@ -249,10 +287,9 @@ img {
   color: var(--text-muted);
   font-weight: 600;
   display: block;
-  line-height: 1.3;
+  line-height: 1.35;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding-top: 1px;
 }
 
 .main-nav {
@@ -814,7 +851,8 @@ img {
   font-size: 1.05rem;
   font-weight: 800;
   color: #ffffff;
-  line-height: 1.2;
+  line-height: 1.45;
+  padding-top: 2px;
 }
 
 .drawer-brand-badge {
@@ -2578,9 +2616,10 @@ h3.article-title {
   color: #ffffff;
   font-size: clamp(1.15rem, 0.4vw + 1rem, 1.35rem);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.45;
   margin: 0;
   letter-spacing: -0.2px;
+  padding-top: 2px;
 }
 
 .footer-brand-badge {
@@ -3916,6 +3955,9 @@ table {
 
   .brand-text .brand-title {
     font-size: clamp(0.96rem, 4.2vw, 1.15rem);
+    line-height: 1.45;
+    padding-top: 2px;
+    overflow: visible;
   }
 
   .brand-text .brand-sub {
@@ -3951,14 +3993,19 @@ table {
   }
 
   .top-disclaimer-bar {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.6rem;
+    font-size: 0.76rem;
+    padding: 0.35rem 0;
   }
 
   .top-disclaimer-bar .badge-unofficial {
-    display: block;
-    margin: 0 auto 0.35rem;
-    width: fit-content;
+    font-size: 0.76rem;
+    padding: 0.18rem 0.55rem;
+    margin: 0 0.45rem 0 0;
+  }
+
+  .top-disclaimer-track {
+    gap: 2rem;
+    animation-duration: 22s;
   }
 
   .other-cat-title {
@@ -4004,7 +4051,10 @@ table {
 
   .brand-text .brand-title {
     font-size: 0.88rem;
+    line-height: 1.45;
+    padding-top: 2px;
     letter-spacing: -0.02em;
+    overflow: visible;
   }
 
   .brand-text .brand-sub {
@@ -4298,3 +4348,194 @@ table {
   color: #64748b;
   margin-top: 0.5rem;
 }
+
+/* ==========================================================================
+   SMART SCROLL ANIMATIONS SYSTEM (Fade-In, Fade-Out, Fade-Left, Fade-Right, Fade-Up)
+   Ultra-smooth 60fps GPU accelerated, zero layout shifts, accessible
+   ========================================================================== */
+
+:root {
+  --anim-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --anim-duration: 0.65s;
+}
+
+/* Base Animation Target State (Activated only when JS is active to prevent no-JS invisibility) */
+.js-ready [data-animate],
+.js-ready [data-aos],
+.js-ready .fade-in,
+.js-ready .fade-out,
+.js-ready .fade-left,
+.js-ready .fade-right,
+.js-ready .fade-up,
+.js-ready .fade-down,
+.js-ready .fade-in-left,
+.js-ready .fade-in-right,
+.js-ready .fade-in-up,
+.js-ready .fade-in-down {
+  opacity: 0;
+  transition: opacity var(--anim-duration) var(--anim-ease), 
+              transform var(--anim-duration) var(--anim-ease);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 1. Fade In */
+.js-ready [data-animate="fade-in"],
+.js-ready [data-aos="fade-in"],
+.js-ready .fade-in {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+/* 2. Fade Out */
+.js-ready [data-animate="fade-out"],
+.js-ready [data-aos="fade-out"],
+.js-ready .fade-out {
+  opacity: 1;
+}
+.js-ready [data-animate="fade-out"].is-visible,
+.js-ready [data-aos="fade-out"].is-visible,
+.js-ready .fade-out.is-visible {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+/* 3. Fade Left (Slides in from Left towards Right) */
+.js-ready [data-animate="fade-left"],
+.js-ready [data-animate="fade-in-left"],
+.js-ready [data-aos="fade-left"],
+.js-ready [data-aos="fade-in-left"],
+.js-ready .fade-left,
+.js-ready .fade-in-left {
+  opacity: 0;
+  transform: translate3d(-36px, 0, 0);
+}
+
+/* 4. Fade Right (Slides in from Right towards Left) */
+.js-ready [data-animate="fade-right"],
+.js-ready [data-animate="fade-in-right"],
+.js-ready [data-aos="fade-right"],
+.js-ready [data-aos="fade-in-right"],
+.js-ready .fade-right,
+.js-ready .fade-in-right {
+  opacity: 0;
+  transform: translate3d(36px, 0, 0);
+}
+
+/* 5. Fade Up (Slides in from Bottom upwards) */
+.js-ready [data-animate="fade-up"],
+.js-ready [data-animate="fade-in-up"],
+.js-ready [data-aos="fade-up"],
+.js-ready [data-aos="fade-in-up"],
+.js-ready .fade-up,
+.js-ready .fade-in-up {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+}
+
+/* 6. Fade Down (Slides in from Top downwards) */
+.js-ready [data-animate="fade-down"],
+.js-ready [data-animate="fade-in-down"],
+.js-ready [data-aos="fade-down"],
+.js-ready [data-aos="fade-in-down"],
+.js-ready .fade-down,
+.js-ready .fade-in-down {
+  opacity: 0;
+  transform: translate3d(0, -32px, 0);
+}
+
+/* Visible State (Triggered by IntersectionObserver) */
+.js-ready [data-animate].is-visible,
+.js-ready [data-aos].is-visible,
+.js-ready .fade-in.is-visible,
+.js-ready .fade-left.is-visible,
+.js-ready .fade-right.is-visible,
+.js-ready .fade-up.is-visible,
+.js-ready .fade-down.is-visible,
+.js-ready .fade-in-left.is-visible,
+.js-ready .fade-in-right.is-visible,
+.js-ready .fade-in-up.is-visible,
+.js-ready .fade-in-down.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Duration Modifiers */
+.duration-200 { transition-duration: 0.2s !important; }
+.duration-300 { transition-duration: 0.3s !important; }
+.duration-400 { transition-duration: 0.4s !important; }
+.duration-500 { transition-duration: 0.5s !important; }
+.duration-600 { transition-duration: 0.6s !important; }
+.duration-700 { transition-duration: 0.7s !important; }
+.duration-800 { transition-duration: 0.8s !important; }
+.duration-1000 { transition-duration: 1s !important; }
+
+/* Delay Modifiers */
+.delay-50 { transition-delay: 50ms !important; }
+.delay-100 { transition-delay: 100ms !important; }
+.delay-150 { transition-delay: 150ms !important; }
+.delay-200 { transition-delay: 200ms !important; }
+.delay-250 { transition-delay: 250ms !important; }
+.delay-300 { transition-delay: 300ms !important; }
+.delay-400 { transition-delay: 400ms !important; }
+.delay-500 { transition-delay: 500ms !important; }
+.delay-600 { transition-delay: 600ms !important; }
+
+/* Smart CSS Stagger for Grid Items */
+[data-stagger] > *:nth-child(1) { transition-delay: 40ms; }
+[data-stagger] > *:nth-child(2) { transition-delay: 80ms; }
+[data-stagger] > *:nth-child(3) { transition-delay: 120ms; }
+[data-stagger] > *:nth-child(4) { transition-delay: 160ms; }
+[data-stagger] > *:nth-child(5) { transition-delay: 200ms; }
+[data-stagger] > *:nth-child(6) { transition-delay: 240ms; }
+[data-stagger] > *:nth-child(7) { transition-delay: 280ms; }
+[data-stagger] > *:nth-child(8) { transition-delay: 320ms; }
+[data-stagger] > *:nth-child(9) { transition-delay: 360ms; }
+[data-stagger] > *:nth-child(10) { transition-delay: 400ms; }
+[data-stagger] > *:nth-child(11) { transition-delay: 440ms; }
+[data-stagger] > *:nth-child(12) { transition-delay: 480ms; }
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .js-ready [data-animate],
+  .js-ready [data-aos],
+  .js-ready .fade-in,
+  .js-ready .fade-out,
+  .js-ready .fade-left,
+  .js-ready .fade-right,
+  .js-ready .fade-up,
+  .js-ready .fade-down,
+  .js-ready .fade-in-left,
+  .js-ready .fade-in-right,
+  .js-ready .fade-in-up,
+  .js-ready .fade-in-down {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   SMART SMOOTH SCROLLER & SCROLL PROGRESS INDICATOR
+   ========================================================================== */
+
+/* 1. Custom Smooth Scrollbar for Modern Browsers */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid #f1f5f9;
+  transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #015fc9;
+}
+
+
+
