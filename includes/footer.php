@@ -218,7 +218,6 @@
       <div class="footer-bottom" data-animate="fade-up">
         <div class="footer-copyright">
           <span>&copy; <?= date('Y') ?> <strong><?= e(SITE_NAME) ?></strong>. સર્વાધિકાર સુરક્ષિત.</span>
-          <span class="footer-badge-mini">An Independent Passenger Guide</span>
         </div>
        
       </div>

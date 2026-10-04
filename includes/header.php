@@ -147,7 +147,10 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
             </svg>
           </div>
           <div class="brand-text">
-            <span class="brand-title"><?= e(SITE_NAME) ?></span>
+            <div class="brand-title">
+              <span class="brand-title-badge">GSRTC</span>
+              <span class="brand-title-main">ગુજરાત એસટી બસ માર્ગદર્શક</span>
+            </div>
             <span class="brand-sub">સલામત અને સરળ મુસાફરી માર્ગદર્શક</span>
           </div>
         </a>
@@ -203,7 +206,10 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
           </svg>
         </div>
         <div class="drawer-brand-info">
-          <span class="drawer-brand-title"><?= e(SITE_NAME) ?></span>
+          <div class="drawer-brand-title">
+            <span class="drawer-brand-badge-pill">GSRTC</span>
+            <span class="drawer-brand-main">ગુજરાત એસટી બસ માર્ગદર્શક</span>
+          </div>
           <span class="drawer-brand-badge">સ્વતંત્ર મુસાફરી સહાયક</span>
         </div>
       </div>
