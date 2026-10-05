@@ -85,21 +85,21 @@ require_once INCLUDES_PATH . '/header.php';
           </div>
         </div>
       <?php else: ?>
-        <div class="articles-grid" data-stagger="60" data-animate-child="fade-up">
+        <div class="articles-grid">
           <?php foreach ($results as $art): ?>
             <?php $cat = get_category_by_slug($art['category_id'] ?? ''); ?>
             <article class="article-card">
               <div class="article-card-body">
-                <div class="article-meta">
+                <div class="article-meta" data-animate="fade-up" data-delay="30">
                   <span class="article-category-badge"><?= e($cat['name'] ?? 'માર્ગદર્શન') ?></span>
                   <span>&bull;</span>
                   <span><?= e($art['reading_time'] ?? '5 મિનિટ') ?></span>
                 </div>
-                <h3 class="article-title">
+                <h3 class="article-title" data-animate="fade-up" data-delay="60">
                   <a href="<?= url('article/' . $art['slug']) ?>"><?= e($art['title']) ?></a>
                 </h3>
-                <p class="article-excerpt"><?= e($art['excerpt']) ?></p>
-                <div class="article-footer">
+                <p class="article-excerpt" data-animate="fade-up" data-delay="90"><?= e($art['excerpt']) ?></p>
+                <div class="article-footer" data-animate="fade-up" data-delay="120">
                   <span style="font-size:0.8rem; color:var(--text-muted);">અપડેટ: <?= date('d M Y', strtotime($art['updated_at'] ?? $art['published_at'])) ?></span>
                   <a href="<?= url('article/' . $art['slug']) ?>" class="read-more-link">
                     વાંચો <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>

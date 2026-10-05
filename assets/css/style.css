@@ -6069,9 +6069,11 @@ table {
 .duration-1000 { transition-duration: 1s !important; }
 
 /* Delay Modifiers & data-delay attributes */
+.delay-30, [data-delay="30"] { transition-delay: 30ms !important; }
 .delay-50, [data-delay="50"] { transition-delay: 50ms !important; }
 .delay-60, [data-delay="60"] { transition-delay: 60ms !important; }
 .delay-80, [data-delay="80"] { transition-delay: 80ms !important; }
+.delay-90, [data-delay="90"] { transition-delay: 90ms !important; }
 .delay-100, [data-delay="100"] { transition-delay: 100ms !important; }
 .delay-120, [data-delay="120"] { transition-delay: 120ms !important; }
 .delay-150, [data-delay="150"] { transition-delay: 150ms !important; }

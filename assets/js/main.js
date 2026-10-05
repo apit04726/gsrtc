@@ -354,8 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     document.querySelectorAll(cardSelectors.join(', ')).forEach((card) => {
-      // Skip items inside sticky stacking containers
-      if (card.closest('.categories-stack-wrapper') || card.closest('.articles-stack-wrapper')) {
+      // Skip items inside sticky stacking containers or cards whose children have inner animations
+      if (card.closest('.categories-stack-wrapper') || card.closest('.articles-stack-wrapper') || card.querySelector('[data-animate]')) {
         return;
       }
       if (!card.hasAttribute('data-animate') && 
@@ -479,8 +479,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -10px 0px',
-      threshold: 0.02
+      rootMargin: '0px 0px -20px 0px',
+      threshold: 0.05
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -488,13 +488,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = entry.target;
         if (entry.isIntersecting) {
           el.classList.add('is-visible');
-          el.setAttribute('data-animated', 'true');
         } else {
-          const rect = entry.boundingClientRect;
-          const vh = window.innerHeight || document.documentElement.clientHeight;
-          if (rect.bottom < -20 || rect.top > vh + 20) {
-            el.classList.remove('is-visible');
-          }
+          el.classList.remove('is-visible');
         }
       });
     }, observerOptions);

@@ -195,13 +195,13 @@ require_once INCLUDES_PATH . '/header.php';
         <?php if (!empty($relatedArticles)): ?>
           <section class="related-articles-section" data-animate="fade-up">
             <h3 class="related-articles-heading">આ સંબંધિત અન્ય ઉપયોગી માર્ગદર્શન</h3>
-            <div class="related-articles-grid" data-stagger="50" data-animate-child="fade-up">
+            <div class="related-articles-grid">
               <?php foreach ($relatedArticles as $rel): ?>
                 <div class="related-article-card">
-                  <h4 class="related-article-title">
+                  <h4 class="related-article-title" data-animate="fade-up" data-delay="30">
                     <a href="<?= url('article/' . $rel['slug']) ?>"><?= e($rel['title']) ?></a>
                   </h4>
-                  <p class="related-article-excerpt"><?= e(mb_strimwidth($rel['excerpt'], 0, 80, '...')) ?></p>
+                  <p class="related-article-excerpt" data-animate="fade-up" data-delay="60"><?= e(mb_strimwidth($rel['excerpt'], 0, 80, '...')) ?></p>
                 </div>
               <?php endforeach; ?>
             </div>
