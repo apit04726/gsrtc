@@ -194,7 +194,7 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
   <aside id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
     <!-- Drawer Brand Header -->
     <div class="drawer-header-brand">
-      <div class="drawer-brand-wrap">
+      <a href="<?= url() ?>" class="drawer-brand-wrap" title="<?= e(SITE_NAME) ?>">
         <div class="drawer-brand-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="15" rx="3"></rect>
@@ -206,13 +206,10 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
           </svg>
         </div>
         <div class="drawer-brand-info">
-          <div class="drawer-brand-title">
-            <span class="drawer-brand-badge-pill">GSRTC</span>
-            <span class="drawer-brand-main">ગુજરાત એસટી બસ માર્ગદર્શક</span>
-          </div>
-          <span class="drawer-brand-badge">સ્વતંત્ર મુસાફરી સહાયક</span>
+          <span class="drawer-brand-badge-pill">GSRTC</span>
+          <span class="drawer-brand-main">ગુજરાત એસટી બસ માર્ગદર્શક</span>
         </div>
-      </div>
+      </a>
       <button id="closeDrawer" class="drawer-close-btn" aria-label="મેનુ બંધ કરો">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
