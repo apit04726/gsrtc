@@ -2565,30 +2565,6 @@ h3.article-title {
   }
 }
 
-/* Smart Translucent White Frosted Glass Hero Card */
-/* Smart Smooth Fade-Up Keyframe Animations */
-@keyframes heroCardFadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(22px) scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes heroChildFadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Smart Translucent White Hero Card (0px Blur) */
 .page-hero-inner {
   position: relative;
@@ -2604,7 +2580,7 @@ h3.article-title {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  animation: heroCardFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  overflow: hidden;
 }
 
 /* Hero Breadcrumbs */
@@ -2621,7 +2597,6 @@ h3.article-title {
   color: #0369a1;
   margin-bottom: 0.85rem;
   -webkit-font-smoothing: antialiased;
-  animation: heroChildFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
 .page-hero-breadcrumbs a {
@@ -2657,7 +2632,6 @@ h3.article-title {
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-bottom: 0.65rem;
-  animation: heroChildFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 .page-hero-title {
@@ -2700,7 +2674,6 @@ h3.article-title {
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  animation: heroChildFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 @media (max-width: 992px) {
@@ -5918,11 +5891,11 @@ table {
    ========================================================================== */
 
 :root {
-  --anim-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --anim-duration: 0.58s;
+  --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-duration: 0.85s;
 }
 
-/* Base Animation Target State (Activated only when JS is active to prevent no-JS invisibility) */
+/* Base Animation Target State */
 .js-ready [data-animate],
 .js-ready [data-aos],
 .js-ready .fade-in,
@@ -5937,11 +5910,27 @@ table {
 .js-ready .fade-in-down,
 .js-ready .zoom-in {
   opacity: 0;
-  transition: opacity var(--anim-duration) var(--anim-ease), 
-              transform var(--anim-duration) var(--anim-ease);
   will-change: opacity, transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* When waiting off-screen, instantly place at initial position with 0ms transition */
+.js-ready [data-animate]:not(.is-visible),
+.js-ready [data-aos]:not(.is-visible),
+.js-ready .fade-in:not(.is-visible),
+.js-ready .fade-left:not(.is-visible),
+.js-ready .fade-right:not(.is-visible),
+.js-ready .fade-up:not(.is-visible),
+.js-ready .fade-down:not(.is-visible),
+.js-ready .fade-in-left:not(.is-visible),
+.js-ready .fade-in-right:not(.is-visible),
+.js-ready .fade-in-up:not(.is-visible),
+.js-ready .fade-in-down:not(.is-visible),
+.js-ready .zoom-in:not(.is-visible) {
+  transition: none !important;
 }
 
 /* 1. Fade In */
@@ -5949,7 +5938,7 @@ table {
 .js-ready [data-aos="fade-in"],
 .js-ready .fade-in {
   opacity: 0;
-  transform: scale(0.96);
+  transform: translate3d(0, 0, 0);
 }
 
 /* 2. Fade Out */
@@ -5962,21 +5951,10 @@ table {
 .js-ready [data-aos="fade-out"].is-visible,
 .js-ready .fade-out.is-visible {
   opacity: 0;
-  transform: scale(0.96);
+  transform: scale(0.98);
 }
 
-/* 3. Fade Left (Slides in from Left towards Right) */
-.js-ready [data-animate="fade-left"],
-.js-ready [data-animate="fade-in-left"],
-.js-ready [data-aos="fade-left"],
-.js-ready [data-aos="fade-in-left"],
-.js-ready .fade-left,
-.js-ready .fade-in-left {
-  opacity: 0;
-  transform: translate3d(-24px, 0, 0);
-}
-
-/* 4. Fade Right (Slides in from Right towards Left) */
+/* 3. Fade Right (Slides in smoothly from Left towards Right) */
 .js-ready [data-animate="fade-right"],
 .js-ready [data-animate="fade-in-right"],
 .js-ready [data-aos="fade-right"],
@@ -5984,7 +5962,18 @@ table {
 .js-ready .fade-right,
 .js-ready .fade-in-right {
   opacity: 0;
-  transform: translate3d(24px, 0, 0);
+  transform: translate3d(-18px, 0, 0);
+}
+
+/* 4. Fade Left (Slides in smoothly from Right towards Left) */
+.js-ready [data-animate="fade-left"],
+.js-ready [data-animate="fade-in-left"],
+.js-ready [data-aos="fade-left"],
+.js-ready [data-aos="fade-in-left"],
+.js-ready .fade-left,
+.js-ready .fade-in-left {
+  opacity: 0;
+  transform: translate3d(18px, 0, 0);
 }
 
 /* 5. Fade Up (Slides in from Bottom upwards) */
@@ -5995,7 +5984,7 @@ table {
 .js-ready .fade-up,
 .js-ready .fade-in-up {
   opacity: 0;
-  transform: translate3d(0, 22px, 0);
+  transform: translate3d(0, 20px, 0);
 }
 
 /* 6. Fade Down (Slides in from Top downwards) */
@@ -6019,10 +6008,10 @@ table {
 /* 8. Fade Scale */
 .js-ready [data-animate="fade-scale"] {
   opacity: 0;
-  transform: translate3d(0, 18px, 0) scale(0.96);
+  transform: translate3d(0, 20px, 0) scale(0.96);
 }
 
-/* Visible State (Triggered smoothly by IntersectionObserver on Scroll Down & Scroll Up) */
+/* Visible State (Triggered smoothly on Scroll Down & Scroll Up) */
 .js-ready [data-animate].is-visible,
 .js-ready [data-aos].is-visible,
 .js-ready .fade-in.is-visible,
@@ -6037,6 +6026,8 @@ table {
 .js-ready .zoom-in.is-visible {
   opacity: 1 !important;
   transform: translate3d(0, 0, 0) scale(1) !important;
+  transition: opacity var(--anim-duration) var(--anim-ease), 
+              transform var(--anim-duration) var(--anim-ease) !important;
 }
 
 /* Duration Modifiers */
@@ -6049,16 +6040,20 @@ table {
 .duration-800 { transition-duration: 0.8s !important; }
 .duration-1000 { transition-duration: 1s !important; }
 
-/* Delay Modifiers */
-.delay-50 { transition-delay: 50ms !important; }
-.delay-100 { transition-delay: 100ms !important; }
-.delay-150 { transition-delay: 150ms !important; }
-.delay-200 { transition-delay: 200ms !important; }
-.delay-250 { transition-delay: 250ms !important; }
-.delay-300 { transition-delay: 300ms !important; }
-.delay-400 { transition-delay: 400ms !important; }
-.delay-500 { transition-delay: 500ms !important; }
-.delay-600 { transition-delay: 600ms !important; }
+/* Delay Modifiers & data-delay attributes */
+.delay-50, [data-delay="50"] { transition-delay: 50ms !important; }
+.delay-60, [data-delay="60"] { transition-delay: 60ms !important; }
+.delay-80, [data-delay="80"] { transition-delay: 80ms !important; }
+.delay-100, [data-delay="100"] { transition-delay: 100ms !important; }
+.delay-120, [data-delay="120"] { transition-delay: 120ms !important; }
+.delay-150, [data-delay="150"] { transition-delay: 150ms !important; }
+.delay-180, [data-delay="180"] { transition-delay: 180ms !important; }
+.delay-200, [data-delay="200"] { transition-delay: 200ms !important; }
+.delay-250, [data-delay="250"] { transition-delay: 250ms !important; }
+.delay-300, [data-delay="300"] { transition-delay: 300ms !important; }
+.delay-400, [data-delay="400"] { transition-delay: 400ms !important; }
+.delay-500, [data-delay="500"] { transition-delay: 500ms !important; }
+.delay-600, [data-delay="600"] { transition-delay: 600ms !important; }
 
 /* Smart CSS Stagger for Grid Items (smooth cascading flow) */
 [data-stagger] > *:nth-child(1) { transition-delay: 30ms; }
@@ -6077,22 +6072,6 @@ table {
 [data-stagger] > *:nth-child(14) { transition-delay: 550ms; }
 [data-stagger] > *:nth-child(15) { transition-delay: 590ms; }
 [data-stagger] > *:nth-child(16) { transition-delay: 630ms; }
-
-/* Mobile & Tablet Zero Horizontal Shift Animation Safety (Prevents any horizontal overflow) */
-@media (max-width: 1024px) {
-  .js-ready [data-animate="fade-left"],
-  .js-ready [data-animate="fade-in-left"],
-  .js-ready [data-animate="fade-right"],
-  .js-ready [data-animate="fade-in-right"],
-  .js-ready [data-aos="fade-left"],
-  .js-ready [data-aos="fade-right"],
-  .js-ready .fade-left,
-  .js-ready .fade-right,
-  .js-ready .fade-in-left,
-  .js-ready .fade-in-right {
-    transform: translate3d(0, 16px, 0) !important;
-  }
-}
 
 /* Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {

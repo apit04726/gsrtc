@@ -17,6 +17,7 @@ $ogImage = $ogImage ?? url('assets/images/og-share.jpg');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-ready');</script>
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title><?= e($pageTitle) ?></title>
   <meta name="description" content="<?= e($metaDescription) ?>">

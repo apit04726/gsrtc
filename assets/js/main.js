@@ -330,8 +330,126 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Auto-setup card grids and individual cards across all pages
+    const cardSelectors = [
+      '.article-card',
+      '.stage-card',
+      '.contact-call-card',
+      '.emergency-card',
+      '.faq-item',
+      '.related-article-card',
+      '.sidebar-widget',
+      '.other-cat-card',
+      '.search-result-card',
+      '.checklist-group',
+      '.journey-timeline-section',
+      '.faq-section',
+      '.interactive-checklist-card',
+      '.section-header',
+      '.articles-grid > *',
+      '.other-categories-grid > *',
+      '.related-articles-grid > *',
+      '.journey-timeline-grid > *',
+      '.footer-smart-call-list > *'
+    ];
+
+    document.querySelectorAll(cardSelectors.join(', ')).forEach((card) => {
+      // Skip items inside sticky stacking containers
+      if (card.closest('.categories-stack-wrapper') || card.closest('.articles-stack-wrapper')) {
+        return;
+      }
+      if (!card.hasAttribute('data-animate') && 
+          !card.classList.contains('fade-in') && 
+          !card.classList.contains('fade-up') && 
+          !card.classList.contains('fade-left') && 
+          !card.classList.contains('fade-right')) {
+        card.setAttribute('data-animate', 'fade-up');
+        const parent = card.parentElement;
+        if (parent) {
+          const siblings = Array.from(parent.children);
+          const idx = siblings.indexOf(card);
+          if (idx >= 0 && idx < 10) {
+            card.setAttribute('data-delay', (idx * 55).toString());
+          }
+        }
+      }
+    });
+
+    // Auto-setup text typography (H2, H3, Paragraphs, Lists, Tables) in articles and content pages
+    const textSelectors = [
+      '.article-body-text > h2',
+      '.article-body-text > h3',
+      '.article-body-text > p',
+      '.article-body-text > ul',
+      '.article-body-text > ol',
+      '.article-body-text > table',
+      '.article-body-text > blockquote',
+      '.static-content > h2',
+      '.static-content > h3',
+      '.static-content > p',
+      '.static-content > ul',
+      '.content-box > h2',
+      '.content-box > h3',
+      '.content-box > p',
+      '.content-box > ul'
+    ];
+
+    document.querySelectorAll(textSelectors.join(', ')).forEach((el) => {
+      if (!el.hasAttribute('data-animate') && 
+          !el.classList.contains('fade-in') && 
+          !el.classList.contains('fade-up') && 
+          !el.classList.contains('fade-left') && 
+          !el.classList.contains('fade-right')) {
+        el.setAttribute('data-animate', 'fade-up');
+      }
+    });
+
+    // Auto-setup all Page Titles, Section Headers, Hero Elements, Breadcrumbs, and Bylines across all pages
+    const headerTitleSelectors = [
+      '.breadcrumbs',
+      '.page-hero-breadcrumbs',
+      '.page-hero-title',
+      '.page-hero-desc',
+      '.page-hero-badge',
+      '.article-h1',
+      '.article-byline',
+      '.section-header h2',
+      '.section-header p',
+      '.section-title-group',
+      '.faq-title',
+      '.checklist-title',
+      '.warning-title',
+      '.direct-answer-header',
+      '.journey-timeline-title',
+      '.journey-timeline-desc',
+      '.widget-title',
+      '.related-articles-heading',
+      '.emergency-widget-title'
+    ];
+
+    document.querySelectorAll(headerTitleSelectors.join(', ')).forEach((el) => {
+      // Skip items inside sticky headers, site navigation, or elements whose parent already animates
+      if (el.closest('.categories-sticky-header') || 
+          el.closest('.articles-sticky-header') || 
+          el.closest('.site-header') || 
+          el.closest('.page-hero-inner') ||
+          el.closest('.article-header')) {
+        return;
+      }
+      if (!el.hasAttribute('data-animate') && 
+          !el.classList.contains('fade-in') && 
+          !el.classList.contains('fade-up') && 
+          !el.classList.contains('fade-left') && 
+          !el.classList.contains('fade-right')) {
+        el.setAttribute('data-animate', 'fade-up');
+      }
+    });
+
     // Auto-setup children of [data-stagger] grids if children don't already have explicit animate attr
     document.querySelectorAll('[data-stagger]').forEach(container => {
+      if (container.closest('.categories-stack-wrapper') || container.closest('.articles-stack-wrapper')) {
+        return;
+      }
       const children = container.children;
       const baseAnim = container.dataset.animateChild || 'fade-up';
       const staggerMs = parseInt(container.dataset.stagger, 10) || 50;
@@ -343,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
             !child.classList.contains('fade-right')) {
           child.setAttribute('data-animate', baseAnim);
           if (!child.hasAttribute('data-delay')) {
-            child.setAttribute('data-delay', (index * staggerMs));
+            child.setAttribute('data-delay', (index * staggerMs).toString());
           }
         }
       });
@@ -361,39 +479,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -30px 0px',
-      threshold: 0.08
+      rootMargin: '0px 0px -10px 0px',
+      threshold: 0.02
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const el = entry.target;
         if (entry.isIntersecting) {
-          // Apply inline delay if attribute is specified
-          if (el.dataset.delay) {
-            el.style.transitionDelay = `${el.dataset.delay}ms`;
-          }
-
-          // Apply inline duration if attribute is specified
-          if (el.dataset.duration) {
-            el.style.transitionDuration = `${el.dataset.duration}ms`;
-          }
-
           el.classList.add('is-visible');
           el.setAttribute('data-animated', 'true');
         } else {
-          // Re-arm animation when element leaves viewport so scrolling up or down re-triggers the smooth fade
           const rect = entry.boundingClientRect;
-          if (rect.top > (window.innerHeight || document.documentElement.clientHeight) || rect.bottom < 0) {
-            // Remove delay during reset so it's instant off-screen
-            el.style.transitionDelay = '0ms';
+          const vh = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.bottom < -20 || rect.top > vh + 20) {
             el.classList.remove('is-visible');
           }
         }
       });
     }, observerOptions);
 
-    animatedElements.forEach(el => observer.observe(el));
+    animatedElements.forEach(el => {
+      if (!el.classList.contains('category-stack-row') && !el.classList.contains('articles-stack-row')) {
+        observer.observe(el);
+      }
+    });
+
+    // Cleanly trigger elements currently in viewport on initial load
+    requestAnimationFrame(() => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      animatedElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < vh && rect.bottom > 0) {
+          el.classList.add('is-visible');
+        }
+      });
+    });
   }
 
   // Initialize animations

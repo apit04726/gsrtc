@@ -50,7 +50,7 @@ require_once INCLUDES_PATH . '/header.php';
       <article class="article-main-content">
         
         <!-- Breadcrumbs -->
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <nav class="breadcrumbs" aria-label="Breadcrumb" data-animate="fade-up">
           <a href="<?= url() ?>">હોમ</a>
           <span>/</span>
           <?php if ($category): ?>
