@@ -2519,7 +2519,6 @@ h3.article-title {
   transform-origin: 52% 35%;
   animation: cinematicDroneCameraSweep 14s cubic-bezier(0.42, 0.05, 0.58, 0.95) infinite;
   will-change: transform;
-  filter: saturate(1.10) contrast(1.04) brightness(0.96);
   pointer-events: none;
 }
 
@@ -2565,22 +2564,50 @@ h3.article-title {
   }
 }
 
-/* Smart Translucent White Hero Card (0px Blur) */
+/* Silk-Smooth GPU Keyframe Text Animation for Hero Content */
+@keyframes heroTextSlideUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Smart Translucent White Hero Card */
 .page-hero-inner {
   position: relative;
   z-index: 2;
   max-width: 580px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 20px;
   padding: 1.6rem 2rem;
   box-shadow: 0 16px 36px rgba(0, 18, 48, 0.22), 0 2px 8px rgba(0, 0, 0, 0.06);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  transform: translateZ(0);
+  isolation: isolate;
   overflow: hidden;
+}
+
+.page-hero-inner > * {
+  animation: heroTextSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+
+.page-hero-inner .page-hero-breadcrumbs {
+  animation-delay: 0.04s;
+}
+
+.page-hero-inner .page-hero-header-row {
+  animation-delay: 0.10s;
+}
+
+.page-hero-inner .page-hero-desc {
+  animation-delay: 0.16s;
 }
 
 /* Hero Breadcrumbs */
@@ -5891,8 +5918,8 @@ table {
    ========================================================================== */
 
 :root {
-  --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --anim-duration: 0.85s;
+  --anim-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --anim-duration: 0.5s;
 }
 
 /* Base Animation Target State */
@@ -5911,6 +5938,7 @@ table {
 .js-ready .zoom-in {
   opacity: 0;
   will-change: opacity, transform;
+  transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
@@ -5962,7 +5990,7 @@ table {
 .js-ready .fade-right,
 .js-ready .fade-in-right {
   opacity: 0;
-  transform: translate3d(-18px, 0, 0);
+  transform: translate3d(-14px, 0, 0);
 }
 
 /* 4. Fade Left (Slides in smoothly from Right towards Left) */
@@ -5973,7 +6001,7 @@ table {
 .js-ready .fade-left,
 .js-ready .fade-in-left {
   opacity: 0;
-  transform: translate3d(18px, 0, 0);
+  transform: translate3d(14px, 0, 0);
 }
 
 /* 5. Fade Up (Slides in from Bottom upwards) */
@@ -5984,7 +6012,7 @@ table {
 .js-ready .fade-up,
 .js-ready .fade-in-up {
   opacity: 0;
-  transform: translate3d(0, 20px, 0);
+  transform: translate3d(0, 14px, 0);
 }
 
 /* 6. Fade Down (Slides in from Top downwards) */
@@ -5995,20 +6023,20 @@ table {
 .js-ready .fade-down,
 .js-ready .fade-in-down {
   opacity: 0;
-  transform: translate3d(0, -20px, 0);
+  transform: translate3d(0, -14px, 0);
 }
 
 /* 7. Zoom In */
 .js-ready [data-animate="zoom-in"],
 .js-ready .zoom-in {
   opacity: 0;
-  transform: scale(0.92);
+  transform: scale(0.94);
 }
 
 /* 8. Fade Scale */
 .js-ready [data-animate="fade-scale"] {
   opacity: 0;
-  transform: translate3d(0, 20px, 0) scale(0.96);
+  transform: translate3d(0, 14px, 0) scale(0.97);
 }
 
 /* Visible State (Triggered smoothly on Scroll Down & Scroll Up) */

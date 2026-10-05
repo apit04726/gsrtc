@@ -504,17 +504,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
       }
     });
-
-    // Cleanly trigger elements currently in viewport on initial load
-    requestAnimationFrame(() => {
-      const vh = window.innerHeight || document.documentElement.clientHeight;
-      animatedElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < vh && rect.bottom > 0) {
-          el.classList.add('is-visible');
-        }
-      });
-    });
   }
 
   // Initialize animations

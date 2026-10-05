@@ -18,7 +18,7 @@ require_once INCLUDES_PATH . '/header.php';
 
 <!-- Search Header Banner -->
 <section class="page-hero-banner" aria-label="Search Guides">
-  <div class="container page-hero-inner" data-animate="fade-up">
+  <div class="container page-hero-inner">
     <div style="max-width: 760px; margin: 0 auto; text-align: center;">
       <nav class="page-hero-breadcrumbs" style="justify-content: center;" aria-label="Breadcrumb">
         <a href="<?= url() ?>">
