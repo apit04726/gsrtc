@@ -317,13 +317,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 6. Smart Scroll Animations System (Fade In, Fade Out, Fade Left, Fade Right, Fade Up, Fade Down)
+  // 6. Smart Scroll Animations System (Bidirectional Fade Up / In on Scroll Down & Scroll Up)
   function initScrollAnimations() {
     // Add js-ready class to activate CSS animation initial states cleanly
     document.documentElement.classList.add('js-ready');
 
     // Accessibility: Respect user's motion preference
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('[data-animate], [data-aos], .fade-in, .fade-left, .fade-right, .fade-up, .fade-down, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down').forEach(el => {
+      document.querySelectorAll('[data-animate], [data-aos], .fade-in, .fade-left, .fade-right, .fade-up, .fade-down, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down, .zoom-in').forEach(el => {
         el.classList.add('is-visible');
       });
       return;
@@ -333,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-stagger]').forEach(container => {
       const children = container.children;
       const baseAnim = container.dataset.animateChild || 'fade-up';
-      const staggerMs = parseInt(container.dataset.stagger, 10) || 70;
+      const staggerMs = parseInt(container.dataset.stagger, 10) || 50;
       Array.from(children).forEach((child, index) => {
         if (!child.hasAttribute('data-animate') && 
             !child.classList.contains('fade-in') && 
@@ -348,11 +349,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    const animateSelector = '[data-animate], [data-aos], .fade-in, .fade-out, .fade-left, .fade-right, .fade-up, .fade-down, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down';
+    const animateSelector = '[data-animate], [data-aos], .fade-in, .fade-out, .fade-left, .fade-right, .fade-up, .fade-down, .fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down, .zoom-in';
     const animatedElements = document.querySelectorAll(animateSelector);
     if (!animatedElements.length) return;
 
-    // Fallback if IntersectionObserver is unsupported in very old browsers
+    // Fallback if IntersectionObserver is unsupported
     if (!('IntersectionObserver' in window)) {
       animatedElements.forEach(el => el.classList.add('is-visible'));
       return;
@@ -380,7 +381,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
           el.classList.add('is-visible');
           el.setAttribute('data-animated', 'true');
-          observer.unobserve(el);
+        } else {
+          // Re-arm animation when element leaves viewport so scrolling up or down re-triggers the smooth fade
+          const rect = entry.boundingClientRect;
+          if (rect.top > (window.innerHeight || document.documentElement.clientHeight) || rect.bottom < 0) {
+            // Remove delay during reset so it's instant off-screen
+            el.style.transitionDelay = '0ms';
+            el.classList.remove('is-visible');
+          }
         }
       });
     }, observerOptions);

@@ -12,7 +12,7 @@ require_once INCLUDES_PATH . '/header.php';
 ?>
 
 <main class="main-layout">
-  <div class="container" style="max-width: 680px; text-align: center; padding: 4rem 1rem;">
+  <div class="container" data-animate="fade-up" style="max-width: 680px; text-align: center; padding: 4rem 1rem;">
     <div style="font-size: 5rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 1rem;">404</div>
     <h1 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem;">આ પૃષ્ઠ મળી શક્યું નથી</h1>
     <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem;">
