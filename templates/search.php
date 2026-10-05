@@ -7,9 +7,9 @@
 $query = trim($_GET['q'] ?? '');
 $results = $query !== '' ? search_articles($query, 'published') : [];
 
-$pageTitle = ($query !== '' ? ('"' . e($query) . '" - GSRTC બસ માહિતી સર્ચ પરિણામો') : 'GSRTC બસ માહિતી સર્ચ') . ' | ' . SITE_NAME;
+$pageTitle = ($query !== '' ? ('"' . e($query) . '" - GSRTC સર્ચ પરિણામો') : 'GSRTC બસ માહિતી સર્ચ') . ' | GSRTC Info';
 $metaDescription = "GSRTC એસટી બસ માહિતી સર્ચ પોર્ટલ. સમયપત્રક, ટિકિટ બુકિંગ, ૨૫ કિલો સામાન, પાસ, રિફંડ અને ૧૮૦૦-૨૩૩-૬૬૬૬ હેલ્પલાઇન નિયમો.";
-$metaKeywords = "GSRTC search, gsrtc bus time table, gsrtc ticket, gsrtc luggage rules, એસટી બસ સર્ચ, ગુજરાત બસ";
+$metaKeywords = "GSRTC search, gsrtc bus time table, gsrtc ticket, gsrtc luggage rules, એસટી બસ સર્ચ, ગુજરાત બસ, gsrtc info";
 $canonicalUrl = url('search') . ($query !== '' ? ('?q=' . urlencode($query)) : '');
 $currentRoute = 'search';
 
@@ -17,21 +17,29 @@ require_once INCLUDES_PATH . '/header.php';
 ?>
 
 <!-- Search Header Banner -->
-<section data-animate="fade-down" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
-  <div class="container">
-    <div style="max-width: 720px; margin: 0 auto; text-align: center;">
-      <h1 style="color:#fff; font-size: 2rem; margin-bottom: 0.5rem;">માહિતી શોધો (Search Guides)</h1>
-      <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.5rem;">
-        તમે ગુજરાતીમાં (દા.ત. ટિકિટ, સામાન, વરસાદ) અથવા અંગ્રેજી અક્ષરોમાં (દા.ત. ticket, luggage, varsad, sleeper) શોધી શકો છો.
+<section class="page-hero-banner" aria-label="Search Guides">
+  <div class="container page-hero-inner">
+    <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+      <nav class="page-hero-breadcrumbs" style="justify-content: center;" aria-label="Breadcrumb">
+        <a href="<?= url() ?>">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          હોમ
+        </a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">માહિતી શોધો</span>
+      </nav>
+      <h1 class="page-hero-title" style="margin-bottom: 0.5rem;">માહિતી શોધો (Search Guides)</h1>
+      <p class="page-hero-desc" style="margin: 0 auto 1.5rem auto;">
+        તમે ગુજરાતીમાં (દા.ત. ટિકિટ, સામાન, પાસ, હેલ્પલાઇન) અથવા અંગ્રેજીમાં (દા.ત. ticket, luggage, pass, emergency) સરળતાથી શોધી શકો છો.
       </p>
 
-      <form action="<?= url('search') ?>" method="GET" class="hero-search-wrapper" style="box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+      <form action="<?= url('search') ?>" method="GET" class="hero-search-wrapper" style="box-shadow: 0 8px 24px rgba(0,0,0,0.22);">
         <input 
           type="text" 
           name="q" 
           value="<?= e($query) ?>" 
           class="hero-search-input" 
-          placeholder="શોધવા માટે કીવર્ડ દાખલ કરો..." 
+          placeholder="શોધવા માટે કીવર્ડ દાખલ કરો (દા.ત. સામાન નિયમો, પાસ)..." 
           aria-label="શોધવા માટે કીવર્ડ"
           required
         >

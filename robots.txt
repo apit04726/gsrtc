@@ -5,6 +5,7 @@ Disallow: /data/
 User-agent: Googlebot
 Allow: /
 Allow: /assets/
+Allow: /assets/images/
 Allow: /favicon.ico
 Allow: /site.webmanifest
 

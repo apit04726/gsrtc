@@ -22,8 +22,23 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc><?= url('assets/images/og-share.png') ?></image:loc>
-      <image:title><?= htmlspecialchars(SITE_NAME . ' - GSRTC બસ માર્ગદર્શિકા', ENT_XML1, 'UTF-8') ?></image:title>
+      <image:loc><?= url('assets/images/slide-1.jpg') ?></image:loc>
+      <image:title>GSRTC ગુજરાત એસટી બસ હાઈવે મુસાફરી અને સમયપત્રક</image:title>
+      <image:caption>GSRTC બસ મુસાફરી પૂર્વે તૈયારી અને ટિકિટ નિયમો</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc><?= url('assets/images/slide-2.jpg') ?></image:loc>
+      <image:title>GSRTC બસ સ્ટેન્ડ ડેપો પૂછપરછ અને પ્લેટફોર્મ માર્ગદર્શક</image:title>
+      <image:caption>ડેપો પૂછપરછ બારી, પ્લેટફોર્મ બે નંબર અને રૂટ પાટિયું વાંચવાની રીત</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc><?= url('assets/images/slide-3.jpg') ?></image:loc>
+      <image:title>GSRTC પરિવાર સુરક્ષા અને ૨૫ કિલો સામાન નિયમો</image:title>
+      <image:caption>પરિવાર સાથે સુરક્ષિત બસ મુસાફરી અને ૨૫ કિલો સામાન મર્યાદા</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc><?= url('assets/images/og-share.jpg') ?></image:loc>
+      <image:title><?= htmlspecialchars('GSRTC Info - ગુજરાત એસટી બસ સમયપત્રક & ટિકિટ બુકિંગ', ENT_XML1, 'UTF-8') ?></image:title>
     </image:image>
   </url>
 
@@ -33,6 +48,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     <lastmod><?= date('Y-m-d') ?></lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc><?= url('assets/images/slide-3.jpg') ?></image:loc>
+      <image:title>બસ મુસાફરી જરૂરી વસ્તુઓનું ઇન્ટરેક્ટિવ ચેકલિસ્ટ</image:title>
+    </image:image>
   </url>
 
   <!-- Search Portal -->
@@ -58,6 +77,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
       <lastmod><?= date('Y-m-d') ?></lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.85</priority>
+      <image:image>
+        <image:loc><?= url('assets/images/gsrtc-bus-banner.jpg') ?></image:loc>
+        <image:title><?= htmlspecialchars($cat['name'] . ' - GSRTC બસ મુસાફરી નિયમો', ENT_XML1, 'UTF-8') ?></image:title>
+      </image:image>
     </url>
   <?php endforeach; ?>
 

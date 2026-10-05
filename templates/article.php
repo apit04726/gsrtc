@@ -15,9 +15,10 @@ $relatedArticles = get_related_articles($article, 3);
 $allCategories = get_categories();
 
 // SEO Setup
-$pageTitle = ($article['meta_title'] ?? $article['title']) . ' - GSRTC બસ માર્ગદર્શિકા | ' . SITE_NAME;
-$metaDescription = $article['meta_desc'] ?? ($article['excerpt'] . ' GSRTC ગુજરાત એસટી બસ મુસાફરી નિયમો.');
-$metaKeywords = ($article['title']) . ', GSRTC, ' . ($category['name'] ?? '') . ', gsrtc rules, st bus, એસટી બસ, ગુજરાત બસ માર્ગદર્શક';
+$rawTitle = $article['meta_title'] ?? $article['title'];
+$pageTitle = $rawTitle . ' | GSRTC Info';
+$metaDescription = $article['meta_desc'] ?? mb_strimwidth($article['excerpt'] . ' GSRTC ગુજરાત એસટી બસ મુસાફરી નિયમો.', 0, 155, '...');
+$metaKeywords = ($article['title']) . ', GSRTC, ' . ($category['name'] ?? '') . ', gsrtc rules, st bus, એસટી બસ, ગુજરાત બસ માર્ગદર્શક, gsrtc info';
 $canonicalUrl = url('article/' . $article['slug']);
 $ogType = 'article';
 $currentRoute = 'article/' . $article['slug'];

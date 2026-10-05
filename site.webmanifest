@@ -1,7 +1,7 @@
 {
-  "name": "ગુજરાત એસટી બસ માર્ગદર્શક - GSRTC Info",
+  "name": "GSRTC Info - ગુજરાત એસટી બસ માર્ગદર્શક",
   "short_name": "GSRTC Info",
-  "description": "ગુજરાતમાં સલામત, સુગમ અને સચોટ બસ મુસાફરી માટેનું સ્વતંત્ર માર્ગદર્શન",
+  "description": "ગુજરાતમાં GSRTC એસટી બસ સમયપત્રક, ઓનલાઇન ટિકિટ બુકિંગ અને મુસાફરી માર્ગદર્શન",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -5,21 +5,24 @@
  */
 
 function generate_website_schema(): string {
+    $siteUrl = rtrim(url(), '/') . '/';
     $schema = [
         "@context" => "https://schema.org",
         "@type" => "WebSite",
-        "name" => "GSRTC ગુજરાત એસટી બસ માર્ગદર્શક",
+        "name" => "GSRTC Info",
         "alternateName" => [
-            "GSRTC Info",
+            "GSRTC",
+            "GSRTC ગુજરાત એસટી બસ માર્ગદર્શક",
             "ગુજરાત બસ માર્ગદર્શક",
             "GSRTC Bus Time Table",
             "GSRTC Bus Guide",
             "Gujarat Bus Margdarshak",
-            "GSRTC Time Table Portal"
+            "GSRTC Info Portal",
+            "gsrtc-info.vercel.app"
         ],
-        "url" => url() . '/',
+        "url" => $siteUrl,
         "description" => SITE_TAGLINE,
-        "inLanguage" => "gu",
+        "inLanguage" => "gu-IN",
         "potentialAction" => [
             "@type" => "SearchAction",
             "target" => [
@@ -33,21 +36,46 @@ function generate_website_schema(): string {
 }
 
 function generate_organization_schema(): string {
+    $siteUrl = rtrim(url(), '/') . '/';
     $schema = [
         "@context" => "https://schema.org",
         "@type" => "Organization",
-        "name" => "GSRTC ગુજરાત એસટી બસ માર્ગદર્શક",
-        "alternateName" => "GSRTC Info - Gujarat Bus Margdarshak",
-        "url" => url() . '/',
+        "name" => "GSRTC Info",
+        "alternateName" => "GSRTC ગુજરાત એસટી બસ માર્ગદર્શક",
+        "url" => $siteUrl,
         "logo" => [
             "@type" => "ImageObject",
             "url" => url('assets/images/favicon-512x512.png'),
             "width" => 512,
-            "height" => 512
+            "height" => 512,
+            "caption" => "GSRTC Info Logo"
         ],
-        "image" => url('assets/images/og-share.png'),
+        "image" => [
+            "@type" => "ImageObject",
+            "url" => url('assets/images/og-share.jpg'),
+            "width" => 1200,
+            "height" => 630,
+            "caption" => "GSRTC ગુજરાત એસટી બસ માર્ગદર્શક"
+        ],
         "description" => SITE_TAGLINE,
         "email" => SITE_EMAIL,
+        "areaServed" => [
+            "@type" => "State",
+            "name" => "Gujarat",
+            "containedInPlace" => [
+                "@type" => "Country",
+                "name" => "India"
+            ]
+        ],
+        "contactPoint" => [
+            [
+                "@type" => "ContactPoint",
+                "telephone" => "+91-1800-233-6666",
+                "contactType" => "customer support",
+                "areaServed" => "IN",
+                "availableLanguage" => ["Gujarati", "Hindi", "English"]
+            ]
+        ],
         "sameAs" => []
     ];
     return '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';

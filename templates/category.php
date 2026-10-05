@@ -13,8 +13,8 @@ if (!isset($category) || empty($category)) {
 $articles = get_articles('published', $category['id']);
 $allCategories = get_categories();
 
-$pageTitle = $category['name'] . " - GSRTC બસ મુસાફરી નિયમો અને માર્ગદર્શન | " . SITE_NAME;
-$metaDescription = $category['description'] . " GSRTC ગુજરાત એસટી બસ મુસાફરી અંગે સંપૂર્ણ ગુજરાતી માર્ગદર્શિકા.";
+$pageTitle = $category['name'] . " - GSRTC બસ નિયમો & ગાઈડ | GSRTC Info";
+$metaDescription = $category['description'] . " GSRTC ગુજરાત એસટી બસ મુસાફરી અંગે 100% સચોટ ગુજરાતી માર્ગદર્શિકા.";
 $metaKeywords = $category['name'] . ", GSRTC, " . ($category['name_en'] ?? '') . ", gsrtc rules, એસટી બસ નિયમો, ગુજરાત બસ";
 $canonicalUrl = url('category/' . $category['slug']);
 $currentRoute = 'category/' . $category['slug'];
@@ -32,20 +32,23 @@ require_once INCLUDES_PATH . '/header.php';
 ?>
 
 <!-- Category Header Banner -->
-<section data-animate="fade-down" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
-  <div class="container">
-    <nav class="breadcrumbs" style="color: #cbd5e1; margin-bottom: 0.75rem;" aria-label="Breadcrumb">
-      <a href="<?= url() ?>" style="color: #cbd5e1;">હોમ</a>
-      <span>/</span>
-      <span style="color: #fed7aa; font-weight: 600;"><?= e($category['name']) ?></span>
+<section class="page-hero-banner" aria-label="<?= e($category['name']) ?>">
+  <div class="container page-hero-inner">
+    <nav class="page-hero-breadcrumbs" aria-label="Breadcrumb">
+      <a href="<?= url() ?>">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        હોમ
+      </a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current"><?= e($category['name']) ?></span>
     </nav>
-    <div style="display:flex; align-items:center; gap: 1rem; flex-wrap: wrap;">
-      <h1 style="color:#fff; font-size: 2rem; margin: 0;"><?= e($category['name']) ?></h1>
-      <span style="background: rgba(255,255,255,0.2); padding: 0.2rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700;">
-        <?= count($articles) ?> લેખ
+    <div class="page-hero-header-row">
+      <h1 class="page-hero-title"><?= e($category['name']) ?></h1>
+      <span class="page-hero-badge">
+        📚 <?= count($articles) ?> માર્ગદર્શક લેખ
       </span>
     </div>
-    <p style="color: #cbd5e1; font-size: 1.05rem; margin-top: 0.5rem; max-width: 720px;"><?= e($category['description']) ?></p>
+    <p class="page-hero-desc"><?= e($category['description']) ?></p>
   </div>
 </section>
 

@@ -4,8 +4,8 @@
  * Compliant with Google AdSense, GDPR, CCPA, and India DPDP Act
  */
 
-$pageTitle = "પ્રાઇવસી પોલિસી (Privacy Policy) | " . SITE_NAME;
-$metaDescription = "ગુજરાત બસ માર્ગદર્શકની પ્રાઇવસી પોલિસી. કૂકીઝ, ગૂગલ એડસેન્સ જાહેરાતો, વપરાશકર્તા ડેટા અને સુરક્ષા અંગે સંપૂર્ણ માહિતી.";
+$pageTitle = "પ્રાઇવસી પોલિસી (Privacy Policy) | GSRTC Info";
+$metaDescription = "GSRTC Info ગુજરાત બસ માર્ગદર્શકની પ્રાઇવસી પોલિસી. કૂકીઝ, ગૂગલ એડસેન્સ જાહેરાતો, વપરાશકર્તા ડેટા અને સુરક્ષા અંગે સંપૂર્ણ માહિતી.";
 $canonicalUrl = url('privacy-policy');
 $currentRoute = 'privacy-policy';
 
@@ -13,15 +13,23 @@ require_once INCLUDES_PATH . '/header.php';
 ?>
 
 <!-- Privacy Header -->
-<section data-animate="fade-down" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color:#fff; padding: 2.5rem 0;">
-  <div class="container">
-    <nav class="breadcrumbs" style="color: #cbd5e1; margin-bottom: 0.75rem;" aria-label="Breadcrumb">
-      <a href="<?= url() ?>" style="color: #cbd5e1;">હોમ</a>
-      <span>/</span>
-      <span style="color: #fed7aa; font-weight: 600;">પ્રાઇવસી પોલિસી</span>
+<section class="page-hero-banner" aria-label="Privacy Policy">
+  <div class="container page-hero-inner">
+    <nav class="page-hero-breadcrumbs" aria-label="Breadcrumb">
+      <a href="<?= url() ?>">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        હોમ
+      </a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">પ્રાઇવસી પોલિસી</span>
     </nav>
-    <h1 style="color:#fff; font-size: 2.2rem; margin: 0;">ગોપનીયતા નીતિ (Privacy Policy)</h1>
-    <p style="color: #cbd5e1; margin-top: 0.5rem; font-size: 0.95rem;">છેલ્લો સુધારો: સપ્ટેમ્બર 2026</p>
+    <div class="page-hero-header-row">
+      <h1 class="page-hero-title">ગોપનીયતા નીતિ (Privacy Policy)</h1>
+      <span class="page-hero-badge badge-success">
+        ✓ ૧૦૦% પારદર્શક
+      </span>
+    </div>
+    <p class="page-hero-desc">તમારો ડેટા અને ગોપનીયતા સુરક્ષા અમારા માટે સૌથી મહત્વપૂર્ણ છે • છેલ્લો સુધારો: સપ્ટેમ્બર 2026</p>
   </div>
 </section>
 

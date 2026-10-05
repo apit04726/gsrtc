@@ -16,8 +16,8 @@ foreach ($allArticles as $art) {
     $categoryCounts[$cId] = ($categoryCounts[$cId] ?? 0) + 1;
 }
 
-$pageTitle = "GSRTC - ગુજરાત એસટી બસ સમયપત્રક, ઓનલાઇન ટિકિટ બુકિંગ, પાસ & હેલ્પલાઇન | GSRTC Bus Info";
-$metaDescription = "GSRTC એસટી બસ સમયપત્રક, ઓનલાઇન ટિકિટ બુકિંગ, ૨૫ કિલો સામાન નિયમો, વિદ્યાર્થી & સિનિયર સિટીઝન પાસ, ૧૮૦૦-૨૩૩-૬૬૬૬ હેલ્પલાઇન અને મુસાફરી સલામતી માટેનું ૧૦૦% સચોટ ગુજરાતી માર્ગદર્શન.";
+$pageTitle = "GSRTC Info - ગુજરાત એસટી બસ સમયપત્રક & ટિકિટ બુકિંગ";
+$metaDescription = "GSRTC એસટી બસ સમયપત્રક, ઓનલાઇન ટિકિટ બુકિંગ, 25 કિલો સામાન નિયમો, પાસ યોજના અને ટોલ ફ્રી હેલ્પલાઇન 1800 233 6666 અંગે 100% સચોટ ગુજરાતી માર્ગદર્શન.";
 $metaKeywords = "GSRTC, gsrtc bus, gsrtc time table, gsrtc bus time table, gsrtc ticket booking, gsrtc online booking, gsrtc bus tracking, gsrtc pass, gsrtc luggage rules, 25 kg free luggage gsrtc, gsrtc helpline number, gsrtc toll free 1800 233 6666, gsrtc sleeper bus, એસટી બસ સમયપત્રક, એસટી બસ ટિકિટ બુકિંગ ઓનલાઇન, જીએસઆરટીસી";
 $canonicalUrl = url();
 $currentRoute = '';
@@ -106,7 +106,7 @@ require_once INCLUDES_PATH . '/header.php';
         
           <!-- Slide 1: Highway Journey -->
           <div class="showcase-slide active" data-slide="0" data-tag="હાઇવે મુસાફરી">
-            <img src="<?= url('assets/images/slide-1.jpg') ?>" alt="ગુજરાત હાઈવે બસ પ્રવાસ" class="showcase-img" loading="eager">
+            <img src="<?= url('assets/images/slide-1.jpg') ?>" alt="GSRTC ગુજરાત એસટી બસ હાઈવે મુસાફરી અને સમયપત્રક" title="GSRTC ગુજરાત હાઈવે બસ પ્રવાસ" width="800" height="500" class="showcase-img" fetchpriority="high" loading="eager">
             <div class="showcase-caption">
               <span class="caption-tag">મુસાફરી પૂર્વે તૈયારી</span>
               <h3 class="caption-title">બસમાં મુસાફરી કરતા પહેલા શું ધ્યાન રાખવું?</h3>
@@ -119,7 +119,7 @@ require_once INCLUDES_PATH . '/header.php';
 
           <!-- Slide 2: Bus Port & Platform Guidance -->
           <div class="showcase-slide" data-slide="1" data-tag="ડેપો નેવિગેશન">
-            <img src="<?= url('assets/images/slide-2.jpg') ?>" alt="ગુજરાત બસ સ્ટેશન પ્લેટફોર્મ ડેપો" class="showcase-img" loading="lazy">
+            <img src="<?= url('assets/images/slide-2.jpg') ?>" alt="GSRTC બસ સ્ટેન્ડ ડેપો પૂછપરછ અને પ્લેટફોર્મ માર્ગદર્શક" title="ગુજરાત બસ સ્ટેશન પ્લેટફોર્મ ડેપો" width="800" height="500" class="showcase-img" loading="lazy">
             <div class="showcase-caption">
               <span class="caption-tag">ડેપો & પ્લેટફોર્મ ગાઈડ</span>
               <h3 class="caption-title">બસ સ્ટેન્ડ પર મુસાફરી કરતા પહેલા શું તપાસવું?</h3>
@@ -132,7 +132,7 @@ require_once INCLUDES_PATH . '/header.php';
 
           <!-- Slide 3: Family Safety & Luggage Rules -->
           <div class="showcase-slide" data-slide="2" data-tag="પરિવાર & સામાન">
-            <img src="<?= url('assets/images/slide-3.jpg') ?>" alt="પરિવાર સાથે સુરક્ષિત બસ મુસાફરી અને સામાન પેકિંગ" class="showcase-img" loading="lazy">
+            <img src="<?= url('assets/images/slide-3.jpg') ?>" alt="GSRTC પરિવાર સુરક્ષા અને ૨૫ કિલો સામાન નિયમો" title="પરિવાર સાથે સુરક્ષિત બસ મુસાફરી અને સામાન પેકિંગ" width="800" height="500" class="showcase-img" loading="lazy">
             <div class="showcase-caption">
               <span class="caption-tag">સુરક્ષા & સામાન નિયમો</span>
               <h3 class="caption-title">૨૫ કિલો સામાન મર્યાદા & બાળકોની સુરક્ષા</h3>

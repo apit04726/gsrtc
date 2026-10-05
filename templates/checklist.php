@@ -4,7 +4,7 @@
  * Offline-capable (localStorage), printable, grouped by categories
  */
 
-$pageTitle = "બસ મુસાફરી માટે જરૂરી વસ્તુઓની Checklist | " . SITE_NAME;
+$pageTitle = "બસ મુસાફરી જરૂરી સામાન Checklist | GSRTC Info";
 $metaDescription = "બસ પ્રવાસમાં નીકળતા પહેલા શું પેક કરવું? ટિકિટ, આઈડી કાર્ડ, દવાઓ, પાણી, નાસ્તો અને પાવરબેંકનું સંપૂર્ણ ગુજરાતી ઇન્ટરેક્ટિવ ચેકલિસ્ટ.";
 $canonicalUrl = url('checklist');
 $currentRoute = 'checklist';
@@ -69,6 +69,27 @@ $checklistGroups = [
 require_once INCLUDES_PATH . '/header.php';
 ?>
 
+<!-- Checklist Hero Banner -->
+<section class="page-hero-banner" aria-label="Checklist">
+  <div class="container page-hero-inner">
+    <nav class="page-hero-breadcrumbs" aria-label="Breadcrumb">
+      <a href="<?= url() ?>">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        હોમ
+      </a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">મુસાફરી ચેકલિસ્ટ</span>
+    </nav>
+    <div class="page-hero-header-row">
+      <h1 class="page-hero-title">બસ મુસાફરી માટે જરૂરી વસ્તુઓની Checklist</h1>
+      <span class="page-hero-badge">
+        📋 ઇન્ટરેક્ટિવ ટૂલ
+      </span>
+    </div>
+    <p class="page-hero-desc">ઘરેથી નીકળતા પહેલા નીચે આપેલા મુદ્દાઓ ચકાસો અને ટીક કરતા જાઓ. આ ચેકલિસ્ટ તમારા બ્રાઉઝરમાં સેવ રહે છે.</p>
+  </div>
+</section>
+
 <!-- Header Ad Placement -->
 <div class="container">
   <?php render_ad_slot('header'); ?>
@@ -76,14 +97,6 @@ require_once INCLUDES_PATH . '/header.php';
 
 <main class="main-layout">
   <div class="container" style="max-width: 860px;">
-    
-    <div data-animate="fade-down" style="text-align: center; margin-bottom: 2rem;">
-      <span class="article-category-badge" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">મુસાફરી પૂર્વ તૈયારી ટૂલ</span>
-      <h1 style="font-size: 2.2rem; margin: 0.75rem 0 0.5rem; color: var(--primary);">બસ મુસાફરી માટે જરૂરી વસ્તુઓની Checklist</h1>
-      <p style="color: var(--text-muted); font-size: 1.05rem;">
-        ઘરેથી નીકળતા પહેલા નીચે આપેલા મુદ્દાઓ ચકાસો અને ટીક કરતા જાઓ. આ ચેકલિસ્ટ તમારા બ્રાઉઝરમાં સેવ રહે છે.
-      </p>
-    </div>
 
     <!-- Action Buttons -->
     <div data-animate="fade-in" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">

@@ -7,9 +7,9 @@
 $categories = get_categories();
 $allArticles = get_articles('published');
 
-$pageTitle = "સાઇટમેપ - તમામ GSRTC માર્ગદર્શિકા અને લેખોની યાદી | " . SITE_NAME;
+$pageTitle = "સાઇટમેપ - તમામ GSRTC માર્ગદર્શિકા | GSRTC Info";
 $metaDescription = "GSRTC ગુજરાત એસટી બસ માર્ગદર્શકના તમામ લેખો, કેટેગરીઝ, સમયપત્રક, લગેજ નિયમો અને મુસાફરી ચેકલિસ્ટનું સંપૂર્ણ ઇન્ડેક્સ.";
-$metaKeywords = "GSRTC sitemap, સાઇટમેપ, એસટી બસ લેખો, GSRTC guide index, ગુજરાત બસ માર્ગદર્શક ઇન્ડેક્સ";
+$metaKeywords = "GSRTC sitemap, સાઇટમેપ, એસટી બસ લેખો, GSRTC guide index, ગુજરાત બસ માર્ગદર્શક ઇન્ડેક્સ, gsrtc info";
 $canonicalUrl = url('sitemap');
 $currentRoute = 'sitemap';
 
@@ -25,23 +25,38 @@ $schemaJsonLd = generate_breadcrumbs_schema($breadcrumbs);
 require_once INCLUDES_PATH . '/header.php';
 ?>
 
-<div class="container" style="margin-top: 1.5rem; margin-bottom: 3rem;">
-  <!-- Breadcrumbs -->
-  <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href="<?= url() ?>">હોમ</a>
-    <span>/</span>
-    <span style="color: var(--primary); font-weight:600;">સાઇટમેપ (HTML Sitemap)</span>
-  </nav>
-
-  <div class="sitemap-hero" data-animate="fade-down" style="background: linear-gradient(135deg, #015fc9 0%, #0284c7 100%); color: #fff; padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; box-shadow: var(--shadow-md);">
-    <h1 style="color: #fff; font-size: 1.85rem; margin-bottom: 0.5rem;">સંપૂર્ણ સાઇટમેપ (Website Sitemap)</h1>
-    <p style="color: #e0f2fe; margin: 0; font-size: 1rem; max-width: 800px;">
-      GSRTC ગુજરાત એસટી બસ માર્ગદર્શક પોર્ટલ પર ઉપલબ્ધ તમામ લેખો, મુસાફરી નિયમો, કેટેગરી અને સાધનોની વિગતવાર યાદી. કોઈપણ પેજ પર જવા માટે શીર્ષક પર ક્લિક કરો.
+<!-- Sitemap Hero Banner -->
+<section class="page-hero-banner" aria-label="Sitemap">
+  <div class="container page-hero-inner">
+    <nav class="page-hero-breadcrumbs" aria-label="Breadcrumb">
+      <a href="<?= url() ?>">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        હોમ
+      </a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">સાઇટમેપ (HTML Sitemap)</span>
+    </nav>
+    <div class="page-hero-header-row">
+      <h1 class="page-hero-title">સંપૂર્ણ સાઇટમેપ (Website Sitemap)</h1>
+      <span class="page-hero-badge">
+        🗺️ તમામ પેજીસ
+      </span>
+    </div>
+    <p class="page-hero-desc">
+      GSRTC ગુજરાત એસટી બસ માર્ગદર્શક પોર્ટલ પર ઉપલબ્ધ તમામ લેખો, મુસાફરી નિયમો, કેટેગરી અને સાધનોની વિગતવાર યાદી.
     </p>
   </div>
+</section>
 
-  <!-- Main Sections Grid -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+<!-- Header Ad Placement -->
+<div class="container">
+  <?php render_ad_slot('header'); ?>
+</div>
+
+<main class="main-layout">
+  <div class="container" style="margin-bottom: 3rem;">
+    <!-- Main Sections Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
     <!-- Key Tools & Pages -->
     <div data-animate="fade-right" style="background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm);">
       <h2 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">

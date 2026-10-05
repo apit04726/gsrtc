@@ -68,6 +68,7 @@ if ($path === 'robots.txt') {
     echo "User-agent: Googlebot\n";
     echo "Allow: /\n";
     echo "Allow: /assets/\n";
+    echo "Allow: /assets/images/\n";
     echo "Allow: /favicon.ico\n";
     echo "Allow: /site.webmanifest\n\n";
     echo "User-agent: Googlebot-Image\n";

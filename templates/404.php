@@ -3,7 +3,7 @@
  * 404 Not Found Template
  */
 
-$pageTitle = "પૃષ્ઠ મળ્યું નથી (404 Not Found) | " . SITE_NAME;
+$pageTitle = "પૃષ્ઠ મળ્યું નથી (404 Not Found) | GSRTC Info";
 $metaDescription = "ક્ષમા કરશો, તમે જે પેજ શોધી રહ્યા છો તે ઉપલબ્ધ નથી.";
 $canonicalUrl = url('404');
 $currentRoute = '404';
