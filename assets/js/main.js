@@ -380,9 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           el.classList.add('is-visible');
           el.setAttribute('data-animated', 'true');
-        } else {
-          // Re-trigger animation when scrolling up or down back into view
-          el.classList.remove('is-visible');
+          observer.unobserve(el);
         }
       });
     }, observerOptions);

@@ -4944,8 +4944,8 @@ table {
    ========================================================================== */
 
 :root {
-  --anim-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --anim-duration: 0.65s;
+  --anim-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --anim-duration: 0.45s;
 }
 
 /* Base Animation Target State (Activated only when JS is active to prevent no-JS invisibility) */
@@ -4974,7 +4974,7 @@ table {
 .js-ready [data-aos="fade-in"],
 .js-ready .fade-in {
   opacity: 0;
-  transform: scale(0.97);
+  transform: scale(0.99);
 }
 
 /* 2. Fade Out */
@@ -4987,7 +4987,7 @@ table {
 .js-ready [data-aos="fade-out"].is-visible,
 .js-ready .fade-out.is-visible {
   opacity: 0;
-  transform: scale(0.96);
+  transform: scale(0.98);
 }
 
 /* 3. Fade Left (Slides in from Left towards Right) */
@@ -4998,7 +4998,7 @@ table {
 .js-ready .fade-left,
 .js-ready .fade-in-left {
   opacity: 0;
-  transform: translate3d(-36px, 0, 0);
+  transform: translate3d(-14px, 0, 0);
 }
 
 /* 4. Fade Right (Slides in from Right towards Left) */
@@ -5009,7 +5009,7 @@ table {
 .js-ready .fade-right,
 .js-ready .fade-in-right {
   opacity: 0;
-  transform: translate3d(36px, 0, 0);
+  transform: translate3d(14px, 0, 0);
 }
 
 /* 5. Fade Up (Slides in from Bottom upwards) */
@@ -5020,7 +5020,7 @@ table {
 .js-ready .fade-up,
 .js-ready .fade-in-up {
   opacity: 0;
-  transform: translate3d(0, 32px, 0);
+  transform: translate3d(0, 14px, 0);
 }
 
 /* 6. Fade Down (Slides in from Top downwards) */
@@ -5031,7 +5031,7 @@ table {
 .js-ready .fade-down,
 .js-ready .fade-in-down {
   opacity: 0;
-  transform: translate3d(0, -32px, 0);
+  transform: translate3d(0, -12px, 0);
 }
 
 /* Visible State (Triggered by IntersectionObserver) */

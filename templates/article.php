@@ -60,7 +60,7 @@ require_once INCLUDES_PATH . '/header.php';
         </nav>
 
         <!-- Article Header -->
-        <header class="article-header" data-animate="fade-down">
+        <header class="article-header" data-animate="fade-up">
           <h1 class="article-h1"><?= e($article['title']) ?></h1>
 
           <div class="article-byline">
